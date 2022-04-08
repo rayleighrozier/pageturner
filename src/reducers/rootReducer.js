@@ -1,5 +1,4 @@
-const defaultState = {};
+import { combineReducers } from "redux";
+// import other reducers here and put them in the object below
 
-function rootReducer(state = defaultState, action) {}
-
-export default rootReducer;
+export default combineReducers({});
