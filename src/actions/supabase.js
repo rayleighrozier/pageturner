@@ -32,11 +32,4 @@ const userSignOut = async () => {
   }
 };
 
-export {
-  supabase,
-  supabaseUrl,
-  supabaseKey,
-  userSignUp,
-  userSignIn,
-  userSignOut,
-};
+export { userSignUp, userSignIn, userSignOut };
