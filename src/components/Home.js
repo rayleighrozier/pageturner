@@ -1,8 +1,8 @@
 import React from "react";
 import { userSignUp, userSignIn, userSignOut } from "../actions/supabase";
-import getSampleBook from "../actions/googleBooks";
+import searchBooks from "../actions/googleBooks";
 export default function Home() {
-  getSampleBook("the sentence");
+  searchBooks("the sentence");
   return (
     <div>
       <h1>Home</h1>
