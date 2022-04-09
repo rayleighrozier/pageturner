@@ -36,7 +36,12 @@ export default function Dashboard() {
       Dashboard
       {signedIn ? <DashboardTop /> : <Error />}
       {googleData.map((book) => {
-        return <p>{book.volumeInfo.title}</p>;
+        return (
+          <div>
+            <p>{book.volumeInfo.title}</p>
+            <img src={book.volumeInfo.imageLinks.thumbnail} />
+          </div>
+        );
       })}
     </div>
   );
