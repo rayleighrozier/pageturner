@@ -19,12 +19,12 @@ export default function Dashboard() {
     updateGoogleData();
   };
   const updateGoogleData = async () => {
+    let dataArray = [];
     for (const book of books.all) {
-      let dataArray = [];
       let data = await getSingleBook(book);
       dataArray = [...dataArray, data];
-      dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
     }
+    dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
   };
 
   useEffect(() => {
