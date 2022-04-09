@@ -1,5 +1,10 @@
-import { TEST_USER, SET_SIGNED_IN, SIGN_IN_USER } from "../action-types/index";
-const defaultState = { email: "", id: "", signedIn: false };
+import {
+  TEST_USER,
+  SET_SIGNED_IN,
+  SIGN_IN_USER,
+  SET_BOOKS,
+} from "../action-types/index";
+const defaultState = { email: "", id: "", books: {}, signedIn: false };
 
 function user(state = defaultState, action) {
   switch (action.type) {
@@ -9,8 +14,10 @@ function user(state = defaultState, action) {
     case SET_SIGNED_IN:
       return { ...state, signedIn: action.payload };
     case SIGN_IN_USER: {
-      console.log("current user", action.payload);
       return { ...state, id: action.payload.id, email: action.payload.email };
+    }
+    case SET_BOOKS: {
+      return { ...state, books: action.payload };
     }
     default:
       return state;

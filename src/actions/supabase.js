@@ -37,8 +37,8 @@ const userGetBooks = async (id) => {
     .from("readers")
     .select("*")
     .match({ userid: id });
-  reader = reader[0];
-  return reader;
+  let books = reader[0].books;
+  return books;
 };
 
 export { userSignUp, userSignIn, userSignOut, userGetBooks };
