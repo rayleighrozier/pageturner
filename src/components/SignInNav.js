@@ -18,7 +18,7 @@ export default function SignInNav() {
         </div>
       ) : (
         <div>
-          <p>Already a user?</p>
+          <p>Already have a pageturner account?</p>
           <button onClick={() => ChangePage("SignIn")}>Sign in here</button>
         </div>
       )}

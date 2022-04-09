@@ -4,7 +4,7 @@ import SignInNav from "./SignInNav";
 export default function SignIn() {
   return (
     <div>
-      <p>Login</p>
+      <p>Sign In</p>
       <div>
         <p>Email</p>
         <input type="text" name="email" />
