@@ -9,7 +9,6 @@ export default function Home() {
   let dispatch = useDispatch();
   let signedIn = useSelector((state) => state.user.signedIn);
   let page = useSelector((state) => state.page);
-  console.log(page);
   return (
     <div>
       <h1>Home</h1>
