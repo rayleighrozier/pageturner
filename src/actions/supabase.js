@@ -32,4 +32,13 @@ const userSignOut = async () => {
   }
 };
 
-export { userSignUp, userSignIn, userSignOut };
+const userGetBooks = async (id) => {
+  let { data: reader, error } = await supabase
+    .from("readers")
+    .select("*")
+    .match({ userid: id });
+  reader = reader[0];
+  return reader;
+};
+
+export { userSignUp, userSignIn, userSignOut, userGetBooks };
