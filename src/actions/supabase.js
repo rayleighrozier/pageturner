@@ -38,6 +38,7 @@ const userGetBooks = async (id) => {
     .select("*")
     .match({ userid: id });
   let books = reader[0].books;
+  console.log("books", books);
   return books;
 };
 

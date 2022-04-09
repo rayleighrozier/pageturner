@@ -7,11 +7,11 @@ import Error from "./Error";
 import DashboardTop from "./dashboard-components/DashboardTop";
 
 export default function Dashboard() {
-  let dispatch = useDispatch();
-  let signedIn = useSelector((state) => state.user.signedIn);
-  let books = useSelector((state) => state.user.books);
-  let id = useSelector((state) => state.user.id);
-  let googleData = useSelector((state) => state.user.googleData);
+  const dispatch = useDispatch();
+  const signedIn = useSelector((state) => state.user.signedIn);
+  const books = useSelector((state) => state.user.books);
+  const id = useSelector((state) => state.user.id);
+  const googleData = useSelector((state) => state.user.googleData);
 
   const updateBooks = async (id) => {
     books = await userGetBooks(id);
@@ -21,7 +21,7 @@ export default function Dashboard() {
   const updateGoogleData = async () => {
     let dataArray = [];
     for (const book of books.all) {
-      let data = await getSingleBook(book);
+      let data = await getSingleBook(book.id);
       dataArray = [...dataArray, data];
     }
     dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      Dashboard
+      <p>Dashboard</p>
       {signedIn ? (
         <>
           <DashboardTop />

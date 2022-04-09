@@ -15,4 +15,13 @@ const getSingleBook = async (id) => {
   return json;
 };
 
-export { searchBooks, getSingleBook };
+const getShelfGoogleData = (googleData, shelf) => {
+  let dataArray = [];
+  for (const book of shelf) {
+    let bookData = googleData.filter((googleBook) => googleBook.id === book.id);
+    dataArray = [...dataArray, ...bookData];
+    return dataArray;
+  }
+};
+
+export { searchBooks, getSingleBook, getShelfGoogleData };

@@ -8,7 +8,7 @@ import {
 const defaultState = {
   email: "",
   id: "",
-  books: {},
+  books: { all: [], current: [], favorites: [], tbr: [] },
   googleData: [],
   signedIn: false,
 };
