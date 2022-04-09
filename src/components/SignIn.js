@@ -1,8 +1,8 @@
 import React from "react";
-import SignInNav from "./SignInNav";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_SIGNED_IN, SIGN_IN_USER } from "../action-types/index";
+import { SET_SIGNED_IN, SIGN_IN_USER, SET_PAGE } from "../action-types/index";
 import { userSignIn } from "../actions/supabase";
+import SignInNav from "./SignInNav";
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ export default function SignIn() {
     if (currentUser.message !== "Invalid login credentials") {
       dispatch({ type: SIGN_IN_USER, payload: currentUser });
       dispatch({ type: SET_SIGNED_IN, payload: true });
+      dispatch({ type: SET_PAGE, payload: "Dashboard" });
     } else {
       window.alert("Invalid login. Try again!");
     }
