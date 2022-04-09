@@ -34,15 +34,22 @@ export default function Dashboard() {
   return (
     <div>
       Dashboard
-      {signedIn ? <DashboardTop /> : <Error />}
-      {googleData.map((book) => {
-        return (
-          <div>
-            <p>{book.volumeInfo.title}</p>
-            <img src={book.volumeInfo.imageLinks.thumbnail} />
-          </div>
-        );
-      })}
+      {signedIn ? (
+        <>
+          <DashboardTop />
+          <p>All Books</p>
+          {googleData.map((book) => {
+            return (
+              <div>
+                <img src={book.volumeInfo.imageLinks.thumbnail} />
+                <p>{book.volumeInfo.title}</p>
+              </div>
+            );
+          })}
+        </>
+      ) : (
+        <Error />
+      )}
     </div>
   );
 }

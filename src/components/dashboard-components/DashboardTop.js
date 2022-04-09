@@ -3,22 +3,33 @@ import { useSelector } from "react-redux";
 
 export default function DashboardTop() {
   let googleData = useSelector((state) => state.user.googleData);
-  let currentBooks = useSelector((state) => state.user.books.current);
-  console.log("currentBooks", currentBooks);
+  let current = useSelector((state) => state.user.books.current);
+  console.log("currentBooks", current);
   //func breaking rn, left off here
-  const getCurrentGoogleData = () => {
-    let currentGoogleData = [];
-    for (const book of currentBooks) {
+
+  const getShelfGoogleData = (shelf) => {
+    let dataArray = [];
+    for (const book of shelf) {
       let bookData = googleData.filter((googleBook) => googleBook.id !== book);
-      currentGoogleData = [...currentGoogleData, bookData];
-      return currentGoogleData;
+      dataArray = [...dataArray, ...bookData];
+      return dataArray;
     }
   };
+  let currentGoogleData = getShelfGoogleData(current);
+  console.log("current gd", currentGoogleData[0].volumeInfo.title);
   // const currentGoogleData = getCurrentGoogleData();
   // console.log("current gd", currentGoogleData[0]);
   return (
     <div>
       <p>Current Reads</p>
+      {currentGoogleData.map((book) => {
+        return (
+          <div>
+            <img src={book.volumeInfo.imageLinks.thumbnail} />
+            <p>{book.volumeInfo.title}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
