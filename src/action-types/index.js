@@ -1,4 +1,5 @@
 const TEST_USER = "TEST_USER";
-const SET_LOGGED_IN = "SET_LOGGED_IN";
+const SET_SIGNED_IN = "SET_SIGNED_IN";
+const SET_PAGE = "SET_PAGE";
 
-export { TEST_USER, SET_LOGGED_IN };
+export { TEST_USER, SET_SIGNED_IN, SET_PAGE };

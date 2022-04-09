@@ -1,6 +1,7 @@
 import React from "react";
+import SignInNav from "./SignInNav";
 
-export default function Login() {
+export default function SignIn() {
   return (
     <div>
       <p>Login</p>
@@ -13,6 +14,7 @@ export default function Login() {
         <input type="text" name="password" />
       </div>
       <button>Submit</button>
+      <SignInNav />
     </div>
   );
 }
