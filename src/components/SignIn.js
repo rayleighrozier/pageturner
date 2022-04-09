@@ -6,7 +6,6 @@ import { userSignIn } from "../actions/supabase";
 
 export default function SignIn() {
   const dispatch = useDispatch();
-  let userEmail = useSelector((state) => state.user.email);
   const captureSignIn = (e) => {
     e.preventDefault();
     let input = {
@@ -18,8 +17,12 @@ export default function SignIn() {
   const sendSignIn = async (e) => {
     let input = captureSignIn(e);
     let currentUser = await userSignIn(input.email, input.password);
-    dispatch({ type: SIGN_IN_USER, payload: currentUser });
-    dispatch({ type: SET_SIGNED_IN, payload: true });
+    if (currentUser.message !== "Invalid login credentials") {
+      dispatch({ type: SIGN_IN_USER, payload: currentUser });
+      dispatch({ type: SET_SIGNED_IN, payload: true });
+    } else {
+      window.alert("Invalid login. Try again!");
+    }
   };
   return (
     <div>
