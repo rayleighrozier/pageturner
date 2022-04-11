@@ -5,7 +5,7 @@ import { userGetBooks } from "../actions/supabase";
 import { getSingleBook } from "../actions/googleBooks";
 import { SET_BOOKS, SET_GOOGLE_DATA } from "../action-types";
 import Error from "./Error";
-import DashboardTop from "./dashboard-components/DashboardTop";
+import Current from "./dashboard-components/Current";
 import { SET_SIGNED_IN } from "../action-types";
 import { userSignOut } from "../actions/supabase";
 
@@ -45,17 +45,17 @@ export default function Dashboard() {
       <p>Dashboard</p>
       {signedIn ? (
         <>
-          <DashboardTop />
+          <Current />
           <p>All Books</p>
           {googleData.map((book) => {
             return (
-              <div key={book.id}>
+              <a href={`/book/${book.id}`} key={book.id}>
                 <img
                   key={book.volumeInfo.imageLinks.thumbnail}
                   src={book.volumeInfo.imageLinks.thumbnail}
                 />
                 <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
-              </div>
+              </a>
             );
           })}
         </>

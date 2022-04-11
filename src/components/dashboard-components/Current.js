@@ -12,13 +12,13 @@ export default function DashboardTop() {
       <p>Current Reads</p>
       {currentGoogleData?.map((book) => {
         return (
-          <div key={book.id}>
+          <a href={`/book/${book.id}`} key={book.id}>
             <img
               key={book.volumeInfo.imageLinks.thumbnail}
               src={book.volumeInfo.imageLinks.thumbnail}
             />
             <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
-          </div>
+          </a>
         );
       })}
     </div>

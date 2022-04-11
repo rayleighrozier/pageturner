@@ -3,8 +3,8 @@ import React from "react";
 export default function Nav() {
   return (
     <div>
-      <a href="/">Home</a>
-      <a href="/dashboard">Dashboard</a>
+      <a href="/">My Books</a>
+      {/* <a href="/dashboard">Dashboard</a> */}
     </div>
   );
 }
