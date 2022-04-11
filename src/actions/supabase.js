@@ -42,7 +42,6 @@ const userGetBooks = async (id) => {
 };
 
 const userUpdateBooks = async (id, updatedBooks) => {
-  console.log("books going in", updatedBooks);
   let { data: reader, error } = await supabase
     .from("readers")
     .update({ books: updatedBooks })

@@ -39,13 +39,19 @@ function user(state = defaultState, action) {
       return { ...state, googleData: action.payload };
     }
     case ADD_USER_BOOK: {
-      return bookOnShelf(action.payload.book.id, state.books.all)
+      return bookOnShelf(
+        action.payload.book.id,
+        state.books[action.payload.shelf]
+      )
         ? state
         : {
             ...state,
             books: {
               ...state.books,
-              all: [...state.books.all, action.payload.book],
+              [action.payload.shelf]: [
+                ...state.books[action.payload.shelf],
+                action.payload.book,
+              ],
             },
           };
     }
