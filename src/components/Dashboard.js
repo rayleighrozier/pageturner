@@ -9,7 +9,7 @@ import DashboardTop from "./dashboard-components/DashboardTop";
 export default function Dashboard() {
   const dispatch = useDispatch();
   const signedIn = useSelector((state) => state.user.signedIn);
-  const books = useSelector((state) => state.user.books);
+  let books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
   const googleData = useSelector((state) => state.user.googleData);
 
@@ -17,6 +17,7 @@ export default function Dashboard() {
     books = await userGetBooks(id);
     dispatch({ type: SET_BOOKS, payload: books });
     updateGoogleData();
+    console.log("google data", googleData);
   };
   const updateGoogleData = async () => {
     let dataArray = [];
@@ -36,7 +37,7 @@ export default function Dashboard() {
       <p>Dashboard</p>
       {signedIn ? (
         <>
-          <DashboardTop />
+          {/* <DashboardTop /> */}
           <p>All Books</p>
           {googleData.map((book) => {
             return (
