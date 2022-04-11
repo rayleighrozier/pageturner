@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-import Dashboard from "./components/Dashboard";
-import Book from "./components/Book";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Book from "./components/Book/Book";
 
 function App() {
   return (

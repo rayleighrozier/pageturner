@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_PAGE } from "../action-types";
-// import { ChangePage } from "../actions/page";
 
 export default function SignInNav() {
   let dispatch = useDispatch();

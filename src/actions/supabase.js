@@ -38,8 +38,15 @@ const userGetBooks = async (id) => {
     .select("*")
     .match({ userid: id });
   let books = reader[0].books;
-  console.log("books", books);
   return books;
 };
 
-export { userSignUp, userSignIn, userSignOut, userGetBooks };
+const userUpdateBooks = async (id, updatedBooks) => {
+  console.log("books going in", updatedBooks);
+  let { data: reader, error } = await supabase
+    .from("readers")
+    .update({ books: updatedBooks })
+    .match({ userid: id });
+};
+
+export { userSignUp, userSignIn, userSignOut, userGetBooks, userUpdateBooks };

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { userGetBooks } from "../actions/supabase";
-import { getSingleBook } from "../actions/googleBooks";
-import { SET_BOOKS, SET_GOOGLE_DATA } from "../action-types";
-import Error from "./Error";
-import Current from "./dashboard-components/Current";
-import { SET_SIGNED_IN } from "../action-types";
-import { userSignOut } from "../actions/supabase";
+import { userGetBooks } from "../../actions/supabase";
+import { getSingleBook } from "../../actions/googleBooks";
+import { SET_BOOKS, SET_GOOGLE_DATA } from "../../action-types";
+import Error from "../Error";
+import Current from "./Current";
+import { SET_SIGNED_IN, SET_PAGE } from "../../action-types";
+import { userSignOut } from "../../actions/supabase";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    dispatch({ type: SET_PAGE, payload: "Dashboard" });
     updateBooks(id);
   }, []);
 
@@ -51,10 +52,10 @@ export default function Dashboard() {
             return (
               <a href={`/book/${book.id}`} key={book.id}>
                 <img
-                  key={book.volumeInfo.imageLinks.thumbnail}
-                  src={book.volumeInfo.imageLinks.thumbnail}
+                  key={book.volumeInfo?.imageLinks?.thumbnail}
+                  src={book.volumeInfo?.imageLinks?.thumbnail}
                 />
-                <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
+                <p key={book.volumeInfo?.title}>{book.volumeInfo?.title}</p>
               </a>
             );
           })}
