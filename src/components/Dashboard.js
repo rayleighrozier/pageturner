@@ -37,13 +37,16 @@ export default function Dashboard() {
       <p>Dashboard</p>
       {signedIn ? (
         <>
-          {/* <DashboardTop /> */}
+          <DashboardTop />
           <p>All Books</p>
           {googleData.map((book) => {
             return (
-              <div>
-                <img src={book.volumeInfo.imageLinks.thumbnail} />
-                <p>{book.volumeInfo.title}</p>
+              <div key={book.id}>
+                <img
+                  key={book.volumeInfo.imageLinks.thumbnail}
+                  src={book.volumeInfo.imageLinks.thumbnail}
+                />
+                <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
               </div>
             );
           })}
