@@ -19,7 +19,13 @@ function user(state = defaultState, action) {
       console.log(state);
       return state;
     case SET_SIGNED_IN:
-      return { ...state, signedIn: action.payload };
+      if (action.payload === false) {
+        return defaultState;
+      }
+      if (action.payload) {
+        return { ...state, signedIn: action.payload };
+      }
+
     case SIGN_IN_USER: {
       return { ...state, id: action.payload.id, email: action.payload.email };
     }

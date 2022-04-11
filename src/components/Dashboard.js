@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userGetBooks } from "../actions/supabase";
 import { getSingleBook } from "../actions/googleBooks";
 import { SET_BOOKS, SET_GOOGLE_DATA } from "../action-types";
 import Error from "./Error";
 import DashboardTop from "./dashboard-components/DashboardTop";
+import { SET_SIGNED_IN } from "../action-types";
+import { userSignOut } from "../actions/supabase";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signedIn = useSelector((state) => state.user.signedIn);
   let books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
@@ -17,7 +21,6 @@ export default function Dashboard() {
     books = await userGetBooks(id);
     dispatch({ type: SET_BOOKS, payload: books });
     updateGoogleData();
-    console.log("google data", googleData);
   };
   const updateGoogleData = async () => {
     let dataArray = [];
@@ -26,6 +29,11 @@ export default function Dashboard() {
       dataArray = [...dataArray, data];
     }
     dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
+  };
+  const signOut = async () => {
+    userSignOut();
+    dispatch({ type: SET_SIGNED_IN, payload: false });
+    navigate("/");
   };
 
   useEffect(() => {
@@ -54,6 +62,7 @@ export default function Dashboard() {
       ) : (
         <Error />
       )}
+      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 }
