@@ -63,7 +63,7 @@ export default function BookShelfSelector() {
       <form>
         {Object.keys(books).map((shelf) =>
           shelf === "all" ? null : (
-            <div>
+            <div key={shelf}>
               <input type="checkbox" name={shelf} />
               <label>{shelf.toUpperCase()}</label>
             </div>
