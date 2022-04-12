@@ -45,19 +45,25 @@ export default function BookButtons() {
     userUpdateBooks(id, books);
   }, [books]);
 
-  const removeBook = (shelf) => {
-    dispatch({
-      type: REMOVE_USER_BOOK,
-      payload: {
-        book: { id: currentBook.id, log: [], pagesRead: 0 },
-        shelf: shelf,
-      },
-    });
+  const removeBook = (shelves) => {
+    for (const shelf of shelves) {
+      dispatch({
+        type: REMOVE_USER_BOOK,
+        payload: {
+          book: { id: currentBook.id, log: [], pagesRead: 0 },
+          shelf: shelf,
+        },
+      });
+    }
   };
 
   return (
     <div>
-      <button onClick={() => removeBook("all")}>Remove from My Books</button>
+      <button
+        onClick={() => removeBook(["all", "current", "favorites", "tbr"])}
+      >
+        Remove from My Books
+      </button>
       <button onClick={() => addToBooks("all")}>Add to My Books</button>
       <button onClick={selectShelves}>Edit Shelves</button>
       <button onClick={() => navigate("/dashboard")}>Back to My Shelves</button>
