@@ -16,6 +16,7 @@ export default function SearchBar() {
   useEffect(() => {
     if (search !== "") {
       navigate(`/search/${search}`);
+      dispatch({ type: SET_SEARCH, payload: "" });
     }
   }, [search]);
   return (
