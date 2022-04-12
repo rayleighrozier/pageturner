@@ -3,5 +3,12 @@ import user from "./userReducer";
 import page from "./pageReducer";
 import currentBook from "./currentBookReducer";
 import editShelves from "./editShelvesReducer";
+import search from "./searchReducer";
 
-export default combineReducers({ user, page, currentBook, editShelves });
+export default combineReducers({
+  user,
+  page,
+  currentBook,
+  editShelves,
+  search,
+});

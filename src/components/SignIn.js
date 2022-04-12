@@ -22,7 +22,7 @@ export default function SignIn() {
       dispatch({ type: SET_SIGNED_IN, payload: true });
       dispatch({ type: SET_PAGE, payload: "Dashboard" });
     } else {
-      window.alert("Invalid login. Try again!");
+      window.alert("Invalid sign in. Try again!");
     }
   };
   return (

@@ -6,6 +6,7 @@ import { getSingleBook } from "../../actions/googleBooks";
 import { SET_BOOKS, SET_GOOGLE_DATA } from "../../action-types";
 import Error from "../Error";
 import Current from "./Current";
+import SearchBar from "./SearchBar";
 import { SET_SIGNED_IN, SET_PAGE } from "../../action-types";
 import { userSignOut } from "../../actions/supabase";
 
@@ -44,6 +45,7 @@ export default function Dashboard() {
   return (
     <div>
       <p>Dashboard</p>
+      <SearchBar />
       {signedIn ? (
         <>
           <Current />
