@@ -1,12 +1,14 @@
 import React from "react";
 import { EDIT_SHELVES, ADD_USER_BOOK } from "../../action-types";
 import { useSelector, useDispatch } from "react-redux";
+import { userUpdateBooks } from "../../actions/supabase";
 
 export default function BookShelfSelector() {
   const dispatch = useDispatch();
   let editShelves = useSelector((state) => state.editShelves);
   const currentBook = useSelector((state) => state.currentBook);
   const books = useSelector((state) => state.user.books);
+  const id = useSelector((state) => state.user.id);
   const closeShelves = () => {
     dispatch({ type: EDIT_SHELVES, payload: false });
   };
@@ -22,7 +24,7 @@ export default function BookShelfSelector() {
     };
     return input;
   };
-  const updateShelves = (e) => {
+  const updateShelves = async (e) => {
     let selection = captureSelection(e);
     for (const shelf in selection) {
       // change book here if log isn't transferring
@@ -37,6 +39,7 @@ export default function BookShelfSelector() {
         });
       }
     }
+    await userUpdateBooks(id, books);
     closeShelves();
   };
   return (
