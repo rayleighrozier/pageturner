@@ -5,6 +5,7 @@ import {
   ADD_USER_BOOK,
   SET_GOOGLE_DATA,
   EDIT_SHELVES,
+  REMOVE_USER_BOOK,
 } from "../../action-types";
 import { bookOnShelf } from "../../actions/book";
 import { userUpdateBooks } from "../../actions/supabase";
@@ -43,9 +44,20 @@ export default function BookButtons() {
     console.log("updating books in supabase");
     userUpdateBooks(id, books);
   }, [books]);
+
+  const removeBook = (shelf) => {
+    dispatch({
+      type: REMOVE_USER_BOOK,
+      payload: {
+        book: { id: currentBook.id, log: [], pagesRead: 0 },
+        shelf: shelf,
+      },
+    });
+  };
+
   return (
     <div>
-      <button>Remove from My Books</button>
+      <button onClick={() => removeBook("all")}>Remove from My Books</button>
       <button onClick={() => addToBooks("all")}>Add to My Books</button>
       <button onClick={selectShelves}>Edit Shelves</button>
       <button onClick={() => navigate("/dashboard")}>Back to My Shelves</button>

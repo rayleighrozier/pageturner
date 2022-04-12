@@ -50,7 +50,7 @@ export default function BookShelfSelector() {
           shelf === "all" ? null : (
             <div>
               <input type="checkbox" name={shelf} />
-              <label for={shelf}>{shelf.toUpperCase()}</label>
+              <label>{shelf.toUpperCase()}</label>
             </div>
           )
         )}

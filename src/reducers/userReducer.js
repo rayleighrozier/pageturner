@@ -5,6 +5,7 @@ import {
   SET_BOOKS,
   SET_GOOGLE_DATA,
   ADD_USER_BOOK,
+  REMOVE_USER_BOOK,
   EDIT_SHELVES,
 } from "../action-types/index";
 import { bookOnShelf } from "../actions/book";
@@ -56,7 +57,20 @@ function user(state = defaultState, action) {
             },
           };
     }
-
+    case REMOVE_USER_BOOK: {
+      let index = state.books[action.payload.shelf].findIndex(
+        (book) => book.id === action.payload.book.id
+      );
+      state.books[action.payload.shelf].splice(index, 1);
+      return index !== -1
+        ? {
+            ...state,
+            books: {
+              ...state.books,
+            },
+          }
+        : state;
+    }
     default:
       return state;
   }
