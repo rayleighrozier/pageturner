@@ -4,6 +4,7 @@ import page from "./pageReducer";
 import currentBook from "./currentBookReducer";
 import editShelves from "./editShelvesReducer";
 import search from "./searchReducer";
+import searchResults from "./searchResultsReducer";
 
 export default combineReducers({
   user,
@@ -11,4 +12,5 @@ export default combineReducers({
   currentBook,
   editShelves,
   search,
+  searchResults,
 });

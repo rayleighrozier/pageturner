@@ -24,4 +24,11 @@ const getShelfGoogleData = (googleData, shelf) => {
   }
 };
 
-export { searchBooks, getSingleBook, getShelfGoogleData };
+const getSearchResults = async (q) => {
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&key=${googleBooksKey}`;
+  let data = await fetch(url);
+  let json = await data.json();
+  return json;
+};
+
+export { searchBooks, getSingleBook, getShelfGoogleData, getSearchResults };

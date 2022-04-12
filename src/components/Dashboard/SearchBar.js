@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_SEARCH } from "../../action-types";
+import { SET_SEARCH, SET_PAGE } from "../../action-types";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ export default function SearchBar() {
   useEffect(() => {
     if (search !== "") {
       navigate(`/search/${search}`);
+      dispatch({ type: SET_PAGE, payload: "Search" });
       dispatch({ type: SET_SEARCH, payload: "" });
     }
   }, [search]);
