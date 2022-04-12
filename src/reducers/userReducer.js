@@ -5,6 +5,7 @@ import {
   SET_BOOKS,
   SET_GOOGLE_DATA,
   ADD_USER_BOOK,
+  EDIT_SHELVES,
 } from "../action-types/index";
 import { bookOnShelf } from "../actions/book";
 

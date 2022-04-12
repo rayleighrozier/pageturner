@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ADD_USER_BOOK, SET_GOOGLE_DATA } from "../../action-types";
+import {
+  ADD_USER_BOOK,
+  SET_GOOGLE_DATA,
+  EDIT_SHELVES,
+} from "../../action-types";
 import { bookOnShelf } from "../../actions/book";
 import { userUpdateBooks } from "../../actions/supabase";
 import { getSingleBook } from "../../actions/googleBooks";
+import BookShelfSelector from "./BookShelfSelector";
 
 export default function BookButtons() {
   const dispatch = useDispatch();
@@ -13,6 +18,7 @@ export default function BookButtons() {
   const allBooks = useSelector((state) => state.user.books.all);
   const currentBook = useSelector((state) => state.currentBook);
   const id = useSelector((state) => state.user.id);
+  let editShelves = useSelector((state) => state.editShelves);
   const updateGoogleData = async () => {
     let dataArray = [];
     for (const book of books.all) {
@@ -30,15 +36,20 @@ export default function BookButtons() {
       },
     });
   };
+  const selectShelves = () => {
+    dispatch({ type: EDIT_SHELVES, payload: true });
+  };
   useEffect(() => {
     console.log("updating books in supabase");
     userUpdateBooks(id, books);
   }, [books]);
   return (
     <div>
-      <button>Remove from Shelf</button>
+      <button>Remove from My Books</button>
       <button onClick={() => addToBooks("all")}>Add to My Books</button>
+      <button onClick={selectShelves}>Edit Shelves</button>
       <button onClick={() => navigate("/dashboard")}>Back to My Shelves</button>
+      {editShelves ? <BookShelfSelector /> : null}
     </div>
   );
 }
