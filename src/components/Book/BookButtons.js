@@ -18,6 +18,7 @@ export default function BookButtons() {
   const books = useSelector((state) => state.user.books);
   const allBooks = useSelector((state) => state.user.books.all);
   const currentBook = useSelector((state) => state.currentBook);
+  const currentBookId = useSelector((state) => state.currentBook.id);
   const id = useSelector((state) => state.user.id);
   let editShelves = useSelector((state) => state.editShelves);
   const updateGoogleData = async () => {
@@ -59,13 +60,19 @@ export default function BookButtons() {
 
   return (
     <div>
-      <button
-        onClick={() => removeBook(["all", "current", "favorites", "tbr"])}
-      >
-        Remove from My Books
-      </button>
-      <button onClick={() => addToBooks("all")}>Add to My Books</button>
-      <button onClick={selectShelves}>Edit Shelves</button>
+      {bookOnShelf(currentBookId, allBooks) ? (
+        <>
+          <button onClick={selectShelves}>Edit Shelves</button>
+          <button
+            onClick={() => removeBook(["all", "current", "favorites", "tbr"])}
+          >
+            Remove from My Books
+          </button>
+        </>
+      ) : (
+        <button onClick={() => addToBooks("all")}>Add to My Books</button>
+      )}
+
       <button onClick={() => navigate("/dashboard")}>Back to My Shelves</button>
       {editShelves ? <BookShelfSelector /> : null}
     </div>

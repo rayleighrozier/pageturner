@@ -11,6 +11,7 @@ export default function BookLog() {
   let allBooks = useSelector((state) => state.user.books.all);
   let currentBookId = useSelector((state) => state.currentBook.id);
   const id = useSelector((state) => state.user.id);
+  const books = useSelector((state) => state.user.books);
   const findCurrentBookIndex = (id, shelf) => {
     let index = shelf.findIndex((book) => book.id === id);
     return index;
