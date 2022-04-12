@@ -1,6 +1,5 @@
 const googleBooksKey = process.env.REACT_APP_GOOGLE_BOOKS_KEY;
 
-//unfinished
 const searchBooks = async (q) => {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${q}&key=${googleBooksKey}`;
   let data = await fetch(url);
@@ -15,13 +14,14 @@ const getSingleBook = async (id) => {
   return json;
 };
 
+// FIX THIS -- book is not iterating as intended
 const getShelfGoogleData = (googleData, shelf) => {
   let dataArray = [];
-  for (const book of shelf) {
+  for (let book of shelf) {
     let bookData = googleData.filter((googleBook) => googleBook.id === book.id);
     dataArray = [...dataArray, ...bookData];
-    return dataArray;
   }
+  return dataArray;
 };
 
 const getSearchResults = async (q) => {

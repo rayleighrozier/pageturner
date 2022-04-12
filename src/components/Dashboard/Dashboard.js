@@ -7,6 +7,7 @@ import { SET_BOOKS, SET_GOOGLE_DATA } from "../../action-types";
 import Error from "../Error";
 import Current from "./Current";
 import SearchBar from "./SearchBar";
+import DashboardShelves from "./DashboardShelves";
 import { SET_SIGNED_IN, SET_PAGE } from "../../action-types";
 import { userSignOut } from "../../actions/supabase";
 
@@ -42,6 +43,10 @@ export default function Dashboard() {
     updateBooks(id);
   }, []);
 
+  useEffect(() => {
+    // update google data here
+  }, []);
+
   return (
     <div>
       <p>Dashboard</p>
@@ -49,6 +54,7 @@ export default function Dashboard() {
       {signedIn ? (
         <>
           <Current />
+          <DashboardShelves />
           <p>All Books</p>
           {googleData.map((book) => {
             return (

@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getShelfGoogleData } from "../../actions/googleBooks";
+import { getShelfGoogleData, getSingleBook } from "../../actions/googleBooks";
 
 export default function DashboardTop() {
   const googleData = useSelector((state) => state.user.googleData);
   const current = useSelector((state) => state.user.books.current);
   let currentGoogleData = getShelfGoogleData(googleData, current);
-
+  console.log(currentGoogleData);
   return (
     <div>
-      <p>Current Reads</p>
+      <p>Pick up where you left off!</p>
       {currentGoogleData?.map((book) => {
         return (
           <a href={`/book/${book.id}`} key={book.id}>

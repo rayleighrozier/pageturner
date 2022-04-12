@@ -17,6 +17,9 @@ export default function BookButtons() {
   const navigate = useNavigate();
   const books = useSelector((state) => state.user.books);
   const allBooks = useSelector((state) => state.user.books.all);
+  const currentBooks = useSelector((state) => state.user.books.current);
+  const favoritesBooks = useSelector((state) => state.user.books.favorites);
+  const tbrBooks = useSelector((state) => state.user.books.tbr);
   const currentBook = useSelector((state) => state.currentBook);
   const currentBookId = useSelector((state) => state.currentBook.id);
   const id = useSelector((state) => state.user.id);
@@ -38,13 +41,14 @@ export default function BookButtons() {
       },
     });
   };
-  const selectShelves = () => {
-    dispatch({ type: EDIT_SHELVES, payload: true });
-  };
+
   useEffect(() => {
     console.log("updating books in supabase");
     userUpdateBooks(id, books);
-  }, [books]);
+  }, [books, allBooks, currentBooks, tbrBooks, favoritesBooks]);
+  const selectShelves = () => {
+    dispatch({ type: EDIT_SHELVES, payload: true });
+  };
 
   const removeBook = (shelves) => {
     for (const shelf of shelves) {
