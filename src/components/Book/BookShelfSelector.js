@@ -1,7 +1,12 @@
 import React from "react";
-import { EDIT_SHELVES, ADD_USER_BOOK } from "../../action-types";
+import {
+  EDIT_SHELVES,
+  ADD_USER_BOOK,
+  REMOVE_USER_BOOK,
+} from "../../action-types";
 import { useSelector, useDispatch } from "react-redux";
 import { userUpdateBooks } from "../../actions/supabase";
+import { bookOnShelf } from "../../actions/book";
 
 export default function BookShelfSelector() {
   const dispatch = useDispatch();
@@ -38,13 +43,23 @@ export default function BookShelfSelector() {
           },
         });
       }
+      if (selection[shelf] === false) {
+        dispatch({
+          type: REMOVE_USER_BOOK,
+          payload: {
+            book: { id: currentBook.id },
+            shelf: shelf,
+          },
+        });
+      }
     }
     await userUpdateBooks(id, books);
     closeShelves();
   };
+
   return (
     <div>
-      <p>Which shelves do you want?</p>
+      <p>Which shelves should this book be on?</p>
       <form>
         {Object.keys(books).map((shelf) =>
           shelf === "all" ? null : (

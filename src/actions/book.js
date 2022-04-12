@@ -1,6 +1,14 @@
 const bookOnShelf = (id, shelf) => {
-  let filtered = shelf.filter((book) => book.id === id);
-  return filtered.length > 0 ? true : false;
+  if (shelf !== undefined) {
+    let filtered = shelf.filter((book) => book.id === id);
+    return filtered.length > 0 ? true : false;
+  }
+};
+const findCurrentBook = (id, shelf) => {
+  if (shelf !== undefined) {
+    let filtered = shelf.filter((book) => book.id === id)[0];
+    return filtered;
+  }
 };
 
-export { bookOnShelf };
+export { bookOnShelf, findCurrentBook };

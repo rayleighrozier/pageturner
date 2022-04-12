@@ -6,7 +6,7 @@ import {
   SET_GOOGLE_DATA,
   ADD_USER_BOOK,
   REMOVE_USER_BOOK,
-  EDIT_SHELVES,
+  ADD_BOOK_LOG,
 } from "../action-types/index";
 import { bookOnShelf } from "../actions/book";
 
@@ -70,6 +70,11 @@ function user(state = defaultState, action) {
             },
           }
         : state;
+    }
+    case ADD_BOOK_LOG: {
+      return {
+        ...state,
+      };
     }
     default:
       return state;
