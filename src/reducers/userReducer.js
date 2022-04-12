@@ -72,6 +72,7 @@ function user(state = defaultState, action) {
         : state;
     }
     case ADD_BOOK_LOG: {
+      state.books.all[action.payload.index].log.push(action.payload.newLog);
       return {
         ...state,
       };

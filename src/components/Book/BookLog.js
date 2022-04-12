@@ -9,6 +9,8 @@ export default function BookLog() {
   let newEntry = useSelector((state) => state.newEntry);
   let allBooks = useSelector((state) => state.user.books.all);
   let currentBookId = useSelector((state) => state.currentBook.id);
+  let entryToSave = useSelector((state) => state.entryToSave);
+  //
   const findCurrentBookIndex = (id, shelf) => {
     let index = shelf.findIndex((book) => book.id === id);
     return index;
