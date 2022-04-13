@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { SET_CURRENT_BOOK, SET_PAGE } from "../../action-types";
 import { getSingleBook } from "../../actions/googleBooks";
-import {
-  SET_CURRENT_BOOK,
-  SET_PAGE,
-  SET_GOOGLE_DATA,
-} from "../../action-types";
-import { bookOnShelf } from "../../actions/book";
+import { bookOnShelf, getPagesRead } from "../../actions/book";
 import BookLog from "./BookLog";
 import BookDescription from "./BookDescription";
 import BookButtons from "./BookButtons";
@@ -15,23 +11,11 @@ import BookButtons from "./BookButtons";
 export default function Book() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const books = useSelector((state) => state.user.books);
   const currentBook = useSelector((state) => state.currentBook);
   const totalPages = currentBook.volumeInfo.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
-  const findIndexofBook = (bookId) => {
-    let index = allBooks.findIndex((book) => book.id === bookId);
-    return index;
-  };
 
-  const getPagesRead = () => {
-    if (bookOnShelf(id, allBooks)) {
-      let index = findIndexofBook(currentBook.id);
-      let pages = allBooks[index].pagesRead;
-      return pages;
-    }
-  };
-  const pagesRead = getPagesRead();
+  const pagesRead = getPagesRead(id, allBooks);
   const updateCurrentBook = async () => {
     let data = await getSingleBook(id);
     dispatch({ type: SET_CURRENT_BOOK, payload: data });

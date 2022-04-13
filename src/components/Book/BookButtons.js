@@ -47,8 +47,12 @@ export default function BookButtons() {
     });
   };
 
+  //fix
   useEffect(() => {
-    console.log("updating books in supabase, here is the state f books", books);
+    console.log(
+      "updating books in supabase, here is the state of books",
+      books
+    );
     userUpdateBooks(id, books);
   }, [books, allBooks, currentBooks, tbrBooks, favoritesBooks]);
 
