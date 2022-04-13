@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { userSignUp, userSignIn, userSignOut } from "../actions/supabase";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   let navigate = useNavigate();
-  let dispatch = useDispatch();
   let signedIn = useSelector((state) => state.user.signedIn);
   let page = useSelector((state) => state.page);
   useEffect(() => {

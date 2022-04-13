@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import SignInNav from "./SignInNav";
-import { userSignUp } from "../actions/supabase";
 import { SET_PAGE } from "../action-types";
+import { userSignUp } from "../actions/supabase";
+import SignInNav from "./SignInNav";
 
 export default function SignUp() {
   const dispatch = useDispatch();

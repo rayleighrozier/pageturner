@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SET_SIGNED_IN, SIGN_IN_USER, SET_PAGE } from "../action-types/index";
 import { userSignIn } from "../actions/supabase";
 import SignInNav from "./SignInNav";

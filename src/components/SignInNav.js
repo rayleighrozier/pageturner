@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { SET_PAGE } from "../action-types";
 
 export default function SignInNav() {
-  let dispatch = useDispatch();
-  let page = useSelector((state) => state.page);
+  const dispatch = useDispatch();
+  const page = useSelector((state) => state.page);
   const ChangePage = (destination) => {
     dispatch({ type: SET_PAGE, payload: destination });
   };

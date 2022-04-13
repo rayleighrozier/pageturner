@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { getShelfGoogleData } from "../../actions/googleBooks";
 
 export default function DashboardShelves() {
   const googleData = useSelector((state) => state.user.googleData);
-  const books = useSelector((state) => state.user.books);
   const current = useSelector((state) => state.user.books.current);
-  let currentGoogleData = getShelfGoogleData(googleData, current);
+  const currentGoogleData = getShelfGoogleData(googleData, current);
   const tbr = useSelector((state) => state.user.books.tbr);
-  let tbrGoogleData = getShelfGoogleData(googleData, tbr);
+  const tbrGoogleData = getShelfGoogleData(googleData, tbr);
   const favorites = useSelector((state) => state.user.books.favorites);
-  let favoritesGoogleData = getShelfGoogleData(googleData, favorites);
+  const favoritesGoogleData = getShelfGoogleData(googleData, favorites);
 
   return (
     <div>

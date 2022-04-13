@@ -7,8 +7,8 @@ export default function Shelf() {
   const { shelf } = useParams();
   const googleData = useSelector((state) => state.user.googleData);
   const shelfBooks = useSelector((state) => state.user.books[shelf]);
-  let shelfGoogleData = getShelfGoogleData(googleData, shelfBooks);
-  console.log("shelfGoogleData", shelfGoogleData);
+  const shelfGoogleData = getShelfGoogleData(googleData, shelfBooks);
+
   return (
     <div>
       <p>{shelf.toUpperCase()}</p>

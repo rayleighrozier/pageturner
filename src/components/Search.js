@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import SearchBar from "./Dashboard/SearchBar";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchResults } from "../actions/googleBooks";
 import { SET_SEARCH_RESULTS } from "../action-types";
+import { getSearchResults } from "../actions/googleBooks";
+import SearchBar from "./Dashboard/SearchBar";
 
 export default function Search() {
-  const { q } = useParams();
   const dispatch = useDispatch();
+  const { q } = useParams();
   const searchResults = useSelector((state) => state.searchResults);
   const updateSearchResults = async () => {
     let results = await getSearchResults(q);
@@ -16,7 +16,6 @@ export default function Search() {
   useEffect(() => {
     updateSearchResults();
   }, [q]);
-
   return (
     <div>
       <SearchBar />
