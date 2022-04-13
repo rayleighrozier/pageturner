@@ -7,16 +7,22 @@ body {
   --font-main: "Manrope", sans-serif;
   --font-accent: "Lora", serif;
   --color-1: #565faf;
+
   --color-2: #f1613e;
   --color-3: #fe7b98;
   --color-4: #f9bac0;
   --color-5: #ffd3a7;
   --color-6: #ffbc54;
-  --color-7: #f4f4f4;
+  --color-9: #dddddd;
   --color-8: #292929;
+  --color-7: #f4f4f4;
   --shadow-1: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+input:focus {
+  outline: none;
+}
+
 .button-default {
   background-color: var(--color-3);
   font-family: var(--font-main);
@@ -27,8 +33,7 @@ body {
   padding: 4px 10px;
 }
 .button-default:hover {
-  background-color: var(--color-4);
-  color: white;
+  opacity: 0.8;
 }
 
 /* MOBILE */

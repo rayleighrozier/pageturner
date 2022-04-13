@@ -11,7 +11,7 @@ export default function SignInNav() {
   return (
     <div>
       {page === "SignIn" ? (
-        <div>
+        <div className="home-nav">
           <p>New to pageturner?</p>
           <button
             className="button-default"
@@ -21,7 +21,7 @@ export default function SignInNav() {
           </button>
         </div>
       ) : (
-        <div>
+        <div className="home-nav">
           <p>Already have a pageturner account?</p>
           <button
             className="button-default"

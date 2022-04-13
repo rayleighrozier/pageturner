@@ -24,7 +24,7 @@
   display: flex;
 }
 .nav-links a:hover {
-  color: var(--color-4);
+  color: var(--color-9);
 }
 
 /* MOBILE */
