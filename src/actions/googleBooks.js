@@ -14,7 +14,6 @@ const getSingleBook = async (id) => {
   return json;
 };
 
-// FIX THIS -- book is not iterating as intended
 const getShelfGoogleData = (googleData, shelf) => {
   let dataArray = [];
   for (let book of shelf) {

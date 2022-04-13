@@ -36,16 +36,22 @@ export default function BookButtons() {
     dispatch({
       type: ADD_USER_BOOK,
       payload: {
-        book: { id: currentBook.id, log: [], pagesRead: 0 },
+        book: {
+          id: currentBook.id,
+          log: [],
+          pagesRead: 0,
+          totalPages: currentBook.volumeInfo.pageCount,
+        },
         shelf: shelf,
       },
     });
   };
 
   useEffect(() => {
-    console.log("updating books in supabase");
+    console.log("updating books in supabase, here is the state f books", books);
     userUpdateBooks(id, books);
   }, [books, allBooks, currentBooks, tbrBooks, favoritesBooks]);
+
   const selectShelves = () => {
     dispatch({ type: EDIT_SHELVES, payload: true });
   };

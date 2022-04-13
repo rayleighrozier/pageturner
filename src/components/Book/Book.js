@@ -17,8 +17,21 @@ export default function Book() {
   const { id } = useParams();
   const books = useSelector((state) => state.user.books);
   const currentBook = useSelector((state) => state.currentBook);
+  const totalPages = currentBook.volumeInfo.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
+  const findIndexofBook = (bookId) => {
+    let index = allBooks.findIndex((book) => book.id === bookId);
+    return index;
+  };
 
+  const getPagesRead = () => {
+    if (bookOnShelf(id, allBooks)) {
+      let index = findIndexofBook(currentBook.id);
+      let pages = allBooks[index].pagesRead;
+      return pages;
+    }
+  };
+  const pagesRead = getPagesRead();
   const updateCurrentBook = async () => {
     let data = await getSingleBook(id);
     dispatch({ type: SET_CURRENT_BOOK, payload: data });
@@ -26,6 +39,7 @@ export default function Book() {
   useEffect(() => {
     updateCurrentBook();
     dispatch({ type: SET_PAGE, payload: "Book" });
+    getPagesRead();
   }, []);
 
   return (
@@ -35,8 +49,12 @@ export default function Book() {
         src={currentBook?.volumeInfo?.imageLinks?.thumbnail}
       />
       <p key={currentBook?.title}>{currentBook?.volumeInfo?.title}</p>
+
       {bookOnShelf(id, allBooks) ? (
         <>
+          <div>
+            <p>{`${pagesRead} of ${totalPages} pages read`}</p>
+          </div>
           <BookLog />
         </>
       ) : (

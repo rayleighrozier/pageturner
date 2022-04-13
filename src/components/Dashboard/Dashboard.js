@@ -43,10 +43,6 @@ export default function Dashboard() {
     updateBooks(id);
   }, []);
 
-  useEffect(() => {
-    // update google data here
-  }, []);
-
   return (
     <div>
       <p>Dashboard</p>
