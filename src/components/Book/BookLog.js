@@ -17,9 +17,8 @@ export default function BookLog() {
   const setNewEntry = () => {
     dispatch({ type: SET_NEW_ENTRY, payload: true });
   };
-  //HELP
+
   useEffect(() => {
-    console.log("updating books in supabase on book log");
     userUpdateBooks(id, books);
   }, [allBooks]);
 

@@ -40,7 +40,6 @@ export default function BookButtons() {
     });
   };
 
-  //fix
   useEffect(() => {
     console.log("updating books in supabase from book buttons", books);
     userUpdateBooks(id, books);
