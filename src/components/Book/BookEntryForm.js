@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ADD_BOOK_LOG, SET_NEW_ENTRY } from "../../action-types";
+import {
+  ADD_BOOK_LOG,
+  SET_NEW_ENTRY,
+  UPDATE_PAGE_COUNT,
+} from "../../action-types";
 
 export default function BookEntryForm() {
   const dispatch = useDispatch();
@@ -26,10 +30,13 @@ export default function BookEntryForm() {
   const sendEntry = (e) => {
     let entry = captureEntry(e);
 
-    //make index dynamic later
     dispatch({
       type: ADD_BOOK_LOG,
       payload: { index: currentBookIndex, newLog: entry },
+    });
+    dispatch({
+      type: UPDATE_PAGE_COUNT,
+      payload: { index: currentBookIndex, number: entry.pagesRead },
     });
     setNewEntry(false);
   };

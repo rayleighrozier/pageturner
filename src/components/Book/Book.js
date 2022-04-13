@@ -41,6 +41,14 @@ export default function Book() {
     dispatch({ type: SET_PAGE, payload: "Book" });
     getPagesRead();
   }, []);
+  const getPercentage = (pagesRead, totalPages) => {
+    const round = (value, precision) => {
+      var multiplier = Math.pow(10, precision || 0);
+      return Math.round(value * multiplier) / multiplier;
+    };
+    return round((100 * pagesRead) / totalPages);
+  };
+  let percentage = getPercentage(pagesRead, totalPages);
 
   return (
     <div>
@@ -54,6 +62,7 @@ export default function Book() {
         <>
           <div>
             <p>{`${pagesRead} of ${totalPages} pages read`}</p>
+            <p>{`${percentage}% complete`}</p>
           </div>
           <BookLog />
         </>

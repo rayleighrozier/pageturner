@@ -7,6 +7,7 @@ import {
   ADD_USER_BOOK,
   REMOVE_USER_BOOK,
   ADD_BOOK_LOG,
+  UPDATE_PAGE_COUNT,
 } from "../action-types/index";
 import { bookOnShelf } from "../actions/book";
 
@@ -73,6 +74,14 @@ function user(state = defaultState, action) {
     }
     case ADD_BOOK_LOG: {
       state.books.all[action.payload.index].log.push(action.payload.newLog);
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_PAGE_COUNT: {
+      state.books.all[action.payload.index].pagesRead =
+        parseInt(state.books.all[action.payload.index].pagesRead) +
+        parseInt(action.payload.number);
       return {
         ...state,
       };

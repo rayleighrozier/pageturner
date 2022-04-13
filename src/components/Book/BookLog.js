@@ -28,7 +28,6 @@ export default function BookLog() {
 
   return (
     <div>
-      <BookRating />
       {currentLogEntries.map((entry) => (
         <div>
           <p>Date</p>

@@ -15,7 +15,7 @@ export default function DashboardShelves() {
   return (
     <div>
       <p>Shelves</p>
-      <p>TBR</p>
+      <a href="/shelf/tbr">TBR</a>
       {tbrGoogleData?.map((book) => {
         return (
           <a href={`/book/${book.id}`} key={book.id}>
@@ -23,11 +23,10 @@ export default function DashboardShelves() {
               key={book.volumeInfo.imageLinks.thumbnail}
               src={book.volumeInfo.imageLinks.thumbnail}
             />
-            <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
           </a>
         );
       })}
-      <p>Favorites</p>
+      <a href="/shelf/favorites">Favorites</a>
       {favoritesGoogleData?.map((book) => {
         return (
           <a href={`/book/${book.id}`} key={book.id}>
@@ -35,11 +34,10 @@ export default function DashboardShelves() {
               key={book.volumeInfo.imageLinks.thumbnail}
               src={book.volumeInfo.imageLinks.thumbnail}
             />
-            <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
           </a>
         );
       })}
-      <p>Current</p>
+      <a href="/shelf/current">Current</a>
       {currentGoogleData?.map((book) => {
         return (
           <a href={`/book/${book.id}`} key={book.id}>
@@ -47,7 +45,6 @@ export default function DashboardShelves() {
               key={book.volumeInfo.imageLinks.thumbnail}
               src={book.volumeInfo.imageLinks.thumbnail}
             />
-            <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
           </a>
         );
       })}
