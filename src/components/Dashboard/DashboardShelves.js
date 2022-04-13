@@ -12,41 +12,49 @@ export default function DashboardShelves() {
   const favoritesGoogleData = getShelfGoogleData(googleData, favorites);
 
   return (
-    <div>
-      <p>Shelves</p>
-      <a href="/shelf/tbr">TBR</a>
-      {tbrGoogleData?.map((book) => {
-        return (
-          <a href={`/book/${book.id}`} key={book.id}>
-            <img
-              key={book.volumeInfo.imageLinks.thumbnail}
-              src={book.volumeInfo.imageLinks.thumbnail}
-            />
-          </a>
-        );
-      })}
-      <a href="/shelf/favorites">Favorites</a>
-      {favoritesGoogleData?.map((book) => {
-        return (
-          <a href={`/book/${book.id}`} key={book.id}>
-            <img
-              key={book.volumeInfo.imageLinks.thumbnail}
-              src={book.volumeInfo.imageLinks.thumbnail}
-            />
-          </a>
-        );
-      })}
-      <a href="/shelf/current">Current</a>
-      {currentGoogleData?.map((book) => {
-        return (
-          <a href={`/book/${book.id}`} key={book.id}>
-            <img
-              key={book.volumeInfo.imageLinks.thumbnail}
-              src={book.volumeInfo.imageLinks.thumbnail}
-            />
-          </a>
-        );
-      })}
+    <div className="dashboard-shelves-container">
+      <p className="dashboard-shelves-title">Shelves</p>
+      <div className="dashboard-shelves">
+        <div className="dashboard-shelf color-6">
+          <a href="/shelf/tbr">TBR</a>
+          {tbrGoogleData?.map((book) => {
+            return (
+              <a href={`/book/${book.id}`} key={book.id}>
+                <img
+                  key={book.volumeInfo.imageLinks.thumbnail}
+                  src={book.volumeInfo.imageLinks.thumbnail}
+                />
+              </a>
+            );
+          })}
+        </div>
+        <div className="dashboard-shelf color-3">
+          <a href="/shelf/favorites">Favorites</a>
+          {favoritesGoogleData?.map((book) => {
+            return (
+              <a href={`/book/${book.id}`} key={book.id}>
+                <img
+                  key={book.volumeInfo.imageLinks.thumbnail}
+                  src={book.volumeInfo.imageLinks.thumbnail}
+                />
+              </a>
+            );
+          })}
+        </div>
+        <div className="dashboard-shelf color-5">
+          <a href="/shelf/current">Current</a>
+          {currentGoogleData?.map((book) => {
+            return (
+              <a href={`/book/${book.id}`} key={book.id}>
+                <img
+                  key={book.volumeInfo.imageLinks.thumbnail}
+                  src={book.volumeInfo.imageLinks.thumbnail}
+                />
+              </a>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,19 +8,25 @@ export default function DashboardTop() {
   let currentGoogleData = getShelfGoogleData(googleData, current);
 
   return (
-    <div>
-      <p>Pick up where you left off!</p>
-      {currentGoogleData?.map((book) => {
-        return (
-          <a href={`/book/${book.id}`} key={book.id}>
-            <img
-              key={book.volumeInfo.imageLinks.thumbnail}
-              src={book.volumeInfo.imageLinks.thumbnail}
-            />
-            <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
-          </a>
-        );
-      })}
+    <div className="dashboard-current">
+      <p className="dashboard-current-title">Pick up where you left off!</p>
+      <div className="dashboard-current-books">
+        {currentGoogleData?.map((book) => {
+          return (
+            <a
+              className="dashboard-current-book-card grow"
+              href={`/book/${book.id}`}
+              key={book.id}
+            >
+              <img
+                key={book.volumeInfo.imageLinks.thumbnail}
+                src={book.volumeInfo.imageLinks.thumbnail}
+              />
+              <p key={book.volumeInfo.title}>{book.volumeInfo.title}</p>
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 }

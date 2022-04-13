@@ -55,9 +55,6 @@ html {
   font-family: var(--font-main);
 }
 
-input:focus {
-  outline: none;
-}
 .home-nav {
   margin: 20px 0px 20px 0px;
 }
@@ -84,7 +81,7 @@ input:focus {
   }
 }
 /* TABLET */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   .home-title {
     font-size: 2.2rem;
     padding: 0;

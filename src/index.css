@@ -13,18 +13,36 @@ body {
   --color-4: #f9bac0;
   --color-5: #ffd3a7;
   --color-6: #ffbc54;
-  --color-9: #dddddd;
-  --color-8: #292929;
   --color-7: #f4f4f4;
+  --color-8: #292929;
+  --color-9: #dddddd;
   --shadow-1: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+a {
+  text-decoration: none;
 }
 input:focus {
   outline: none;
 }
-
-.button-default {
+.color-6 {
+  background-color: var(--color-6);
+}
+.color-3 {
   background-color: var(--color-3);
+}
+.color-5 {
+  background-color: var(--color-5);
+}
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.05);
+}
+.button-default {
+  background-color: var(--color-2);
   font-family: var(--font-main);
   font-size: 1rem;
   color: white;
@@ -40,7 +58,7 @@ input:focus {
 @media screen and (max-width: 480px) {
 }
 /* TABLET */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
 }
 /* LAPTOP OR BIGGER */
 @media screen and (min-width: 769px) {

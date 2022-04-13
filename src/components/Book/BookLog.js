@@ -13,7 +13,7 @@ export default function BookLog() {
   const books = useSelector((state) => state.user.books);
   const currentBookId = useSelector((state) => state.currentBook.id);
   const currentLogEntries =
-    allBooks[findIndexOfBook(currentBookId, allBooks)].log;
+    allBooks[findIndexOfBook(currentBookId, allBooks)]?.log;
   const setNewEntry = () => {
     dispatch({ type: SET_NEW_ENTRY, payload: true });
   };
@@ -24,7 +24,7 @@ export default function BookLog() {
 
   return (
     <div>
-      {currentLogEntries.map((entry) => (
+      {currentLogEntries?.map((entry) => (
         <div>
           <p>Date</p>
           <p>{entry.date}</p>

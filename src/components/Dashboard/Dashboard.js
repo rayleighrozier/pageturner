@@ -13,6 +13,7 @@ import Error from "../Error";
 import Current from "./Current";
 import SearchBar from "./SearchBar";
 import DashboardShelves from "./DashboardShelves";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -45,12 +46,11 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div>
-      <p>Dashboard</p>
-      <SearchBar />
+    <div className="dashboard">
       {signedIn ? (
-        <>
+        <div className="dashboard">
           <Current />
+          <SearchBar />
           <DashboardShelves />
           <p>All Books</p>
           {googleData?.map((book) => {
@@ -64,7 +64,7 @@ export default function Dashboard() {
               </a>
             );
           })}
-        </>
+        </div>
       ) : (
         <Error />
       )}
