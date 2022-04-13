@@ -83,13 +83,20 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
-  padding: 0px 20px 0px 20px;
+  padding: 40px 20px 40px 20px;
 }
 .dashboard-shelf {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
   border-radius: 8px;
+}
+.dashboard-all-books {
+  background-color: var(--color-1);
+  width: 100%;
+  color: white;
+  display: flex;
+  padding: 40px 20px 40px 20px;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {

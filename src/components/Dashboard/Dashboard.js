@@ -48,23 +48,25 @@ export default function Dashboard() {
   return (
     <div className="dashboard">
       {signedIn ? (
-        <div className="dashboard">
+        <>
           <Current />
           <SearchBar />
           <DashboardShelves />
-          <p>All Books</p>
-          {googleData?.map((book) => {
-            return (
-              <a href={`/book/${book.id}`} key={book.id}>
-                <img
-                  key={book.volumeInfo?.imageLinks?.thumbnail}
-                  src={book.volumeInfo?.imageLinks?.thumbnail}
-                />
-                <p key={book.volumeInfo?.title}>{book.volumeInfo?.title}</p>
-              </a>
-            );
-          })}
-        </div>
+          <div className="dashboard-all-books">
+            <p>All Books</p>
+            {googleData?.map((book) => {
+              return (
+                <a href={`/book/${book.id}`} key={book.id}>
+                  <img
+                    key={book.volumeInfo?.imageLinks?.thumbnail}
+                    src={book.volumeInfo?.imageLinks?.thumbnail}
+                  />
+                  <p key={book.volumeInfo?.title}>{book.volumeInfo?.title}</p>
+                </a>
+              );
+            })}
+          </div>
+        </>
       ) : (
         <Error />
       )}
