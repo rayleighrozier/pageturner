@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SET_CURRENT_BOOK, SET_PAGE } from "../../action-types";
 import { getSingleBook } from "../../actions/googleBooks";
 import { bookOnShelf, getPagesRead } from "../../actions/book";
+import { getPercentage } from "../../actions/math";
 import BookLog from "./BookLog";
 import BookDescription from "./BookDescription";
 import BookButtons from "./BookButtons";
@@ -14,8 +15,9 @@ export default function Book() {
   const currentBook = useSelector((state) => state.currentBook);
   const totalPages = currentBook.volumeInfo.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
-
   const pagesRead = getPagesRead(id, allBooks);
+  let percentage = getPercentage(pagesRead, totalPages);
+
   const updateCurrentBook = async () => {
     let data = await getSingleBook(id);
     dispatch({ type: SET_CURRENT_BOOK, payload: data });
@@ -25,14 +27,6 @@ export default function Book() {
     dispatch({ type: SET_PAGE, payload: "Book" });
     getPagesRead();
   }, []);
-  const getPercentage = (pagesRead, totalPages) => {
-    const round = (value, precision) => {
-      var multiplier = Math.pow(10, precision || 0);
-      return Math.round(value * multiplier) / multiplier;
-    };
-    return round((100 * pagesRead) / totalPages);
-  };
-  let percentage = getPercentage(pagesRead, totalPages);
 
   return (
     <div>
