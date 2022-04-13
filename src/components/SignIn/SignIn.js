@@ -30,18 +30,22 @@ export default function SignIn() {
     }
   };
   return (
-    <div>
-      <form>
-        <p>Sign In</p>
-        <div>
+    <div className="home-container">
+      <form className="home-form">
+        <p className="home-title">Sign In</p>
+        <div className="home-input">
           <p>Email</p>
           <input type="text" name="email" />
         </div>
-        <div>
+        <div className="home-input">
           <p>Password</p>
           <input type="text" name="password" />
         </div>
-        <button type="submit" onClick={(e) => sendSignIn(e)}>
+        <button
+          className="button-default"
+          type="submit"
+          onClick={(e) => sendSignIn(e)}
+        >
           Submit
         </button>
       </form>

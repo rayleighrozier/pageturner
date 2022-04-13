@@ -25,18 +25,20 @@ export default function SignUp() {
     }
   };
   return (
-    <div>
-      <form>
-        <p>SignUp</p>
-        <div>
+    <div className="home-container">
+      <form className="home-form">
+        <p className="home-title">Sign Up</p>
+        <div className="home-input">
           <p>Email</p>
           <input type="text" name="email" />
         </div>
-        <div>
+        <div className="home-input">
           <p>Password</p>
           <input type="text" name="password" />
         </div>
-        <button onClick={sendSignUp}>Submit</button>
+        <button className="button-default" onClick={sendSignUp}>
+          Submit
+        </button>
       </form>
       <SignInNav />
     </div>

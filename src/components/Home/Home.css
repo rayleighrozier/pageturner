@@ -1,0 +1,89 @@
+html {
+  height: 100%;
+}
+.home {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./assets/hero.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-sign-in {
+  z-index: 2;
+  color: black;
+  background-color: var(--color-7);
+  padding: 20px 50px 20px 50px;
+  width: 50vw;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow-1);
+}
+.home-container {
+  width: 100%;
+}
+.home-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.home-title {
+  font-family: var(--font-accent);
+}
+.home-input {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px 10px 0px;
+  gap: 10px;
+}
+.home-input input {
+  height: 18px;
+  flex-grow: 1;
+}
+.home-input p {
+  text-align: right;
+}
+/* MOBILE */
+@media screen and (max-width: 480px) {
+  .home-title {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  .home-input {
+    font-size: 1rem;
+  }
+}
+/* TABLET */
+@media screen and (max-width: 768px) {
+  .home-title {
+    font-size: 2.2rem;
+    padding: 0;
+    margin: 0;
+  }
+  .home-input {
+    font-size: 1.1rem;
+  }
+}
+/* LAPTOP OR BIGGER */
+@media screen and (min-width: 769px) {
+  .home-title {
+    font-size: 2.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  .home-input {
+    font-size: 1.25rem;
+  }
+}

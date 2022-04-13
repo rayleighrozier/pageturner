@@ -13,12 +13,22 @@ export default function SignInNav() {
       {page === "SignIn" ? (
         <div>
           <p>New to pageturner?</p>
-          <button onClick={() => ChangePage("SignUp")}>Sign up here</button>
+          <button
+            className="button-default"
+            onClick={() => ChangePage("SignUp")}
+          >
+            Sign up here
+          </button>
         </div>
       ) : (
         <div>
           <p>Already have a pageturner account?</p>
-          <button onClick={() => ChangePage("SignIn")}>Sign in here</button>
+          <button
+            className="button-default"
+            onClick={() => ChangePage("SignIn")}
+          >
+            Sign in here
+          </button>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav";
-import Home from "./components/Home";
+import Nav from "./components/Nav/Nav";
+import Home from "./components/Home/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Book from "./components/Book/Book";
 import Search from "./components/Search/Search";
