@@ -1,28 +1,25 @@
 import React, { useEffect } from "react";
-import BookRating from "./BookRating";
 import { useSelector, useDispatch } from "react-redux";
-import { ADD_BOOK_LOG, SET_NEW_ENTRY } from "../../action-types";
+import { SET_NEW_ENTRY } from "../../action-types";
 import { userUpdateBooks } from "../../actions/supabase";
+import { findIndexOfBook } from "../../actions/book";
 import BookEntryForm from "./BookEntryForm";
 
 export default function BookLog() {
   const dispatch = useDispatch();
-  let newEntry = useSelector((state) => state.newEntry);
-  let allBooks = useSelector((state) => state.user.books.all);
-  let currentBookId = useSelector((state) => state.currentBook.id);
+  const newEntry = useSelector((state) => state.newEntry);
   const id = useSelector((state) => state.user.id);
+  const allBooks = useSelector((state) => state.user.books.all);
   const books = useSelector((state) => state.user.books);
-  const findCurrentBookIndex = (id, shelf) => {
-    let index = shelf.findIndex((book) => book.id === id);
-    return index;
-  };
-  let currentLogEntries =
-    allBooks[findCurrentBookIndex(currentBookId, allBooks)].log;
+  const currentBookId = useSelector((state) => state.currentBook.id);
+  const currentLogEntries =
+    allBooks[findIndexOfBook(currentBookId, allBooks)].log;
   const setNewEntry = () => {
     dispatch({ type: SET_NEW_ENTRY, payload: true });
   };
+  //HELP
   useEffect(() => {
-    console.log("updating books in supabase");
+    console.log("updating books in supabase on book log");
     userUpdateBooks(id, books);
   }, [allBooks]);
 

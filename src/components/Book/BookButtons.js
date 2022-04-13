@@ -23,16 +23,9 @@ export default function BookButtons() {
   const currentBook = useSelector((state) => state.currentBook);
   const currentBookId = useSelector((state) => state.currentBook.id);
   const id = useSelector((state) => state.user.id);
-  let editShelves = useSelector((state) => state.editShelves);
-  const updateGoogleData = async () => {
-    let dataArray = [];
-    for (const book of books.all) {
-      let data = await getSingleBook(book.id);
-      dataArray = [...dataArray, data];
-    }
-    dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
-  };
-  const addToBooks = async (shelf) => {
+  const editShelves = useSelector((state) => state.editShelves);
+
+  const addToBooks = (shelf) => {
     dispatch({
       type: ADD_USER_BOOK,
       payload: {
@@ -49,10 +42,7 @@ export default function BookButtons() {
 
   //fix
   useEffect(() => {
-    console.log(
-      "updating books in supabase, here is the state of books",
-      books
-    );
+    console.log("updating books in supabase from book buttons", books);
     userUpdateBooks(id, books);
   }, [books, allBooks, currentBooks, tbrBooks, favoritesBooks]);
 

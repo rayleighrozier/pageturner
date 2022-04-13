@@ -1,24 +1,19 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   EDIT_SHELVES,
   ADD_USER_BOOK,
   REMOVE_USER_BOOK,
 } from "../../action-types";
-import { useSelector, useDispatch } from "react-redux";
 import { userUpdateBooks } from "../../actions/supabase";
-import { bookOnShelf } from "../../actions/book";
 
 export default function BookShelfSelector() {
   const dispatch = useDispatch();
-  let editShelves = useSelector((state) => state.editShelves);
   const currentBook = useSelector((state) => state.currentBook);
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
   const closeShelves = () => {
     dispatch({ type: EDIT_SHELVES, payload: false });
-  };
-  const getShelfOptions = () => {
-    console.log(Object.keys(books));
   };
   const captureSelection = (e) => {
     e.preventDefault();
@@ -32,8 +27,6 @@ export default function BookShelfSelector() {
   const updateShelves = async (e) => {
     let selection = captureSelection(e);
     for (const shelf in selection) {
-      // change book here if log isn't transferring
-      console.log(selection[shelf]);
       if (selection[shelf] === true) {
         dispatch({
           type: ADD_USER_BOOK,

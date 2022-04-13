@@ -6,4 +6,10 @@ const getPercentage = (partial, total) => {
   return round((100 * partial) / total);
 };
 
-export { getPercentage };
+const removeTags = (str) => {
+  if (str === null || str === "") return false;
+  else str = str.toString();
+  return str.replace(/(<([^>]+)>)/gi, "");
+};
+
+export { getPercentage, removeTags };

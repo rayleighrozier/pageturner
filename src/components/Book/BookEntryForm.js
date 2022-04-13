@@ -5,11 +5,13 @@ import {
   SET_NEW_ENTRY,
   UPDATE_PAGE_COUNT,
 } from "../../action-types";
+import { findIndexOfBook } from "../../actions/book";
 
 export default function BookEntryForm() {
   const dispatch = useDispatch();
-  let allBooks = useSelector((state) => state.user.books.all);
-  let currentBookId = useSelector((state) => state.currentBook.id);
+  const allBooks = useSelector((state) => state.user.books.all);
+  const currentBookId = useSelector((state) => state.currentBook.id);
+  const currentBookIndex = findIndexOfBook(currentBookId, allBooks);
   const setNewEntry = (value) => {
     dispatch({ type: SET_NEW_ENTRY, payload: value });
   };
@@ -22,14 +24,8 @@ export default function BookEntryForm() {
     };
     return input;
   };
-  const findCurrentBookIndex = (id, shelf) => {
-    let index = shelf.findIndex((book) => book.id === id);
-    return index;
-  };
-  let currentBookIndex = findCurrentBookIndex(currentBookId, allBooks);
   const sendEntry = (e) => {
     let entry = captureEntry(e);
-
     dispatch({
       type: ADD_BOOK_LOG,
       payload: { index: currentBookIndex, newLog: entry },
@@ -40,14 +36,13 @@ export default function BookEntryForm() {
     });
     setNewEntry(false);
   };
-
   return (
     <div>
       <form>
         <input type="date" />
-        <label>Total Pages Read</label>
+        <p>Total Pages Read</p>
         <input type="number" />
-        <label>Notes</label>
+        <p>Notes</p>
         <textarea />
         <button onClick={(e) => sendEntry(e)}>Submit Entry</button>
         <button onClick={() => setNewEntry(false)}>Go Back</button>
