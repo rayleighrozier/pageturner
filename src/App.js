@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Book from "./components/Book/Book";
-import Search from "./components/Search";
+import Search from "./components/Search/Search";
 import Shelf from "./components/Shelf/Shelf";
 
 function App() {

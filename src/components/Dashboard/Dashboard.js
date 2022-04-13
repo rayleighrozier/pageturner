@@ -40,8 +40,8 @@ export default function Dashboard() {
     navigate("/");
   };
   useEffect(() => {
-    dispatch({ type: SET_PAGE, payload: "Dashboard" });
     updateBooks(id);
+    dispatch({ type: SET_PAGE, payload: "Dashboard" });
   }, []);
 
   return (
@@ -53,7 +53,7 @@ export default function Dashboard() {
           <Current />
           <DashboardShelves />
           <p>All Books</p>
-          {googleData.map((book) => {
+          {googleData?.map((book) => {
             return (
               <a href={`/book/${book.id}`} key={book.id}>
                 <img

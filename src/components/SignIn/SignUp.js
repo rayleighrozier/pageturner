@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { SET_PAGE } from "../action-types";
-import { userSignUp } from "../actions/supabase";
+import { SET_PAGE } from "../../action-types/index";
+import { userSignUp } from "../../actions/supabase";
 import SignInNav from "./SignInNav";
 
 export default function SignUp() {
@@ -17,7 +17,6 @@ export default function SignUp() {
   const sendSignUp = async (e) => {
     let input = captureSignUp(e);
     let currentUser = await userSignUp(input.email, input.password);
-    console.log(currentUser);
     if (currentUser.message) {
       window.alert(`${currentUser.message}`);
     } else {

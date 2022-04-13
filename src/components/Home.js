@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "./SignIn/SignIn";
+import SignUp from "./SignIn/SignUp";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {

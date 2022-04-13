@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_SEARCH_RESULTS } from "../action-types";
-import { getSearchResults } from "../actions/googleBooks";
-import SearchBar from "./Dashboard/SearchBar";
+import { SET_SEARCH_RESULTS } from "../../action-types";
+import { getSearchResults } from "../../actions/googleBooks";
+import SearchBar from "../Dashboard/SearchBar";
 
 export default function Search() {
   const dispatch = useDispatch();
