@@ -35,11 +35,7 @@ export default function Dashboard() {
     dispatch({ type: SET_BOOKS, payload: updatedBooks });
     updateGoogleData();
   };
-  const signOut = async () => {
-    userSignOut();
-    dispatch({ type: SET_SIGNED_IN, payload: false });
-    navigate("/");
-  };
+
   useEffect(() => {
     updateBooks(id);
     dispatch({ type: SET_PAGE, payload: "Dashboard" });
@@ -50,27 +46,34 @@ export default function Dashboard() {
       {signedIn ? (
         <>
           <Current />
-          <SearchBar />
-          <DashboardShelves />
-          <div className="dashboard-all-books">
-            <p>All Books</p>
-            {googleData?.map((book) => {
-              return (
-                <a href={`/book/${book.id}`} key={book.id}>
-                  <img
-                    key={book.volumeInfo?.imageLinks?.thumbnail}
-                    src={book.volumeInfo?.imageLinks?.thumbnail}
-                  />
-                  <p key={book.volumeInfo?.title}>{book.volumeInfo?.title}</p>
-                </a>
-              );
-            })}
+          <div className="dashboard-middle">
+            <SearchBar />
+            <DashboardShelves />
+          </div>
+          <div className="dashboard-all">
+            <p className="dashboard-all-title">All Books</p>
+            <div className="dashboard-all-books">
+              {googleData?.map((book) => {
+                return (
+                  <a
+                    className="dashboard-shelf-book-card grow"
+                    href={`/book/${book.id}`}
+                    key={book.id}
+                  >
+                    <img
+                      key={book.volumeInfo?.imageLinks?.thumbnail}
+                      src={book.volumeInfo?.imageLinks?.thumbnail}
+                    />
+                    <p key={book.volumeInfo?.title}>{book.volumeInfo?.title}</p>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </>
       ) : (
         <Error />
       )}
-      <button onClick={signOut}>Sign Out</button>
     </div>
   );
 }

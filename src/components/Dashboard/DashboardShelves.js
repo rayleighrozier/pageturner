@@ -15,7 +15,7 @@ export default function DashboardShelves() {
     <div className="dashboard-shelves-container">
       <p className="dashboard-shelves-title">Shelves</p>
       <div className="dashboard-shelves">
-        <div className="dashboard-shelf color-6">
+        <div className="dashboard-shelf shadow color-6">
           <a className="dashboard-shelf-title" href="/shelf/tbr">
             TBR
           </a>
@@ -36,7 +36,7 @@ export default function DashboardShelves() {
             })}
           </div>
         </div>
-        <div className="dashboard-shelf color-5">
+        <div className="dashboard-shelf shadow color-5">
           <a className="dashboard-shelf-title" href="/shelf/favorites">
             Favorites
           </a>
@@ -57,7 +57,7 @@ export default function DashboardShelves() {
             })}
           </div>
         </div>
-        <div className="dashboard-shelf color-4">
+        <div className="dashboard-shelf color-4 shadow">
           <a className="dashboard-shelf-title" href="/shelf/current">
             Current
           </a>

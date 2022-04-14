@@ -1,7 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { SET_SIGNED_IN } from "../../action-types";
+import { userSignOut } from "../../actions/supabase";
 import "./Nav.css";
 
 export default function Nav() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const signOut = () => {
+    userSignOut();
+    dispatch({ type: SET_SIGNED_IN, payload: false });
+    navigate("/");
+  };
   return (
     <div className="nav">
       <div className="nav-pageturner">
@@ -11,7 +22,9 @@ export default function Nav() {
         <a href="/">Shelves</a>
         <a href="/">Current</a>
         <a href="/">Search</a>
-        <a href="/">Sign Out</a>
+        <a onClick={signOut} href="/">
+          Sign Out
+        </a>
       </div>
     </div>
   );

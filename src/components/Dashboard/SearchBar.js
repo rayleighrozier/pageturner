@@ -21,7 +21,7 @@ export default function SearchBar() {
     }
   }, [search]);
   return (
-    <div className="dashboard-search">
+    <div className="dashboard-search shadow">
       <form className="dashboard-search-form">
         <input type="text" />
         <button
