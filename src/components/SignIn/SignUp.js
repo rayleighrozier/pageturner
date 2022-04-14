@@ -36,7 +36,7 @@ export default function SignUp() {
           <p>Password</p>
           <input type="text" name="password" />
         </div>
-        <button className="button-default" onClick={sendSignUp}>
+        <button className="button-default color-2" onClick={sendSignUp}>
           Submit
         </button>
       </form>

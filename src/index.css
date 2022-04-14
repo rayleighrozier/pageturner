@@ -25,15 +25,25 @@ a {
 input:focus {
   outline: none;
 }
-.color-6 {
-  background-color: var(--color-6);
+.color-1 {
+  background-color: var(--color-1);
+}
+.color-2 {
+  background-color: var(--color-2);
 }
 .color-3 {
   background-color: var(--color-3);
 }
+.color-4 {
+  background-color: var(--color-4);
+}
 .color-5 {
   background-color: var(--color-5);
 }
+.color-6 {
+  background-color: var(--color-6);
+}
+
 .grow {
   transition: all 0.2s ease-in-out;
 }
@@ -42,7 +52,6 @@ input:focus {
   transform: scale(1.05);
 }
 .button-default {
-  background-color: var(--color-2);
   font-family: var(--font-main);
   font-size: 1rem;
   color: white;

@@ -48,9 +48,12 @@
 }
 .dashboard-search {
   margin: 40px 0px 40px 0px;
-  width: 100%;
+  padding: 20px;
+  width: 90%;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
+  background-color: var(--color-2);
 }
 .dashboard-search-form {
   display: flex;
@@ -62,34 +65,58 @@
   flex-grow: 1;
   height: 25px;
   font-family: var(--font-main);
-  border: var(--color-2) 1px solid;
+  border: white 1px solid;
   border-radius: 4px;
 }
 .dashboard-shelves-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100vw;
+  max-width: 100%;
 }
 .dashboard-shelves-title {
   font-family: var(--font-accent);
   font-weight: 600;
   font-size: 2.2rem;
-  margin: 0px 0px 40px 100px;
+  margin: 0px 0px 40px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .dashboard-shelves {
-  width: 100%;
+  width: 95%;
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
-  padding: 40px 20px 40px 20px;
+  padding: 0px 20px 40px 20px;
 }
 .dashboard-shelf {
+  min-width: 40vw;
+  min-height: 200px;
+  padding: 0px 10px 20px 10px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   flex-grow: 1;
   border-radius: 8px;
+}
+.dashboard-shelf-title {
+  color: var(--color-8);
+  font-family: var(--font-accent);
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+}
+.dashboard-shelf-books {
+  padding: 5px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-evenly;
 }
 .dashboard-all-books {
   background-color: var(--color-1);
@@ -97,6 +124,16 @@
   color: white;
   display: flex;
   padding: 40px 20px 40px 20px;
+}
+.dashboard-shelf-book-card {
+  width: 130px;
+  padding: 5px;
+}
+.dashboard-shelf-book-card img {
+  height: 200px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
@@ -123,5 +160,8 @@
   }
   .dashboard-search-form {
     width: 40vw;
+  }
+  .dashboard-shelf-title {
+    font-size: 1.5rem;
   }
 }

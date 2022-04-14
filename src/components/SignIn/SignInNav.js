@@ -14,7 +14,7 @@ export default function SignInNav() {
         <div className="home-nav">
           <p>New to pageturner?</p>
           <button
-            className="button-default"
+            className="button-default color-2"
             onClick={() => ChangePage("SignUp")}
           >
             Sign up here
@@ -24,7 +24,7 @@ export default function SignInNav() {
         <div className="home-nav">
           <p>Already have a pageturner account?</p>
           <button
-            className="button-default"
+            className="button-default color-2"
             onClick={() => ChangePage("SignIn")}
           >
             Sign in here

@@ -24,7 +24,10 @@ export default function SearchBar() {
     <div className="dashboard-search">
       <form className="dashboard-search-form">
         <input type="text" />
-        <button className="button-default" onClick={(e) => captureSearch(e)}>
+        <button
+          className="button-default color-1"
+          onClick={(e) => captureSearch(e)}
+        >
           Search
         </button>
       </form>

@@ -42,7 +42,7 @@ export default function SignIn() {
           <input type="text" name="password" />
         </div>
         <button
-          className="button-default"
+          className="button-default color-2"
           type="submit"
           onClick={(e) => sendSignIn(e)}
         >

@@ -16,43 +16,67 @@ export default function DashboardShelves() {
       <p className="dashboard-shelves-title">Shelves</p>
       <div className="dashboard-shelves">
         <div className="dashboard-shelf color-6">
-          <a href="/shelf/tbr">TBR</a>
-          {tbrGoogleData?.map((book) => {
-            return (
-              <a href={`/book/${book.id}`} key={book.id}>
-                <img
-                  key={book.volumeInfo.imageLinks.thumbnail}
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                />
-              </a>
-            );
-          })}
-        </div>
-        <div className="dashboard-shelf color-3">
-          <a href="/shelf/favorites">Favorites</a>
-          {favoritesGoogleData?.map((book) => {
-            return (
-              <a href={`/book/${book.id}`} key={book.id}>
-                <img
-                  key={book.volumeInfo.imageLinks.thumbnail}
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                />
-              </a>
-            );
-          })}
+          <a className="dashboard-shelf-title" href="/shelf/tbr">
+            TBR
+          </a>
+          <div className="dashboard-shelf-books">
+            {tbrGoogleData?.map((book) => {
+              return (
+                <a
+                  className="dashboard-shelf-book-card grow"
+                  href={`/book/${book.id}`}
+                  key={book.id}
+                >
+                  <img
+                    key={book.volumeInfo.imageLinks.thumbnail}
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                  />
+                </a>
+              );
+            })}
+          </div>
         </div>
         <div className="dashboard-shelf color-5">
-          <a href="/shelf/current">Current</a>
-          {currentGoogleData?.map((book) => {
-            return (
-              <a href={`/book/${book.id}`} key={book.id}>
-                <img
-                  key={book.volumeInfo.imageLinks.thumbnail}
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                />
-              </a>
-            );
-          })}
+          <a className="dashboard-shelf-title" href="/shelf/favorites">
+            Favorites
+          </a>
+          <div className="dashboard-shelf-books">
+            {favoritesGoogleData?.map((book) => {
+              return (
+                <a
+                  className="dashboard-shelf-book-card grow"
+                  href={`/book/${book.id}`}
+                  key={book.id}
+                >
+                  <img
+                    key={book.volumeInfo.imageLinks.thumbnail}
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                  />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+        <div className="dashboard-shelf color-4">
+          <a className="dashboard-shelf-title" href="/shelf/current">
+            Current
+          </a>
+          <div className="dashboard-shelf-books">
+            {currentGoogleData?.map((book) => {
+              return (
+                <a
+                  className="dashboard-shelf-book-card grow"
+                  href={`/book/${book.id}`}
+                  key={book.id}
+                >
+                  <img
+                    key={book.volumeInfo.imageLinks.thumbnail}
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                  />
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
