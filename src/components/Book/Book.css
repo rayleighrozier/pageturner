@@ -251,6 +251,22 @@ textarea {
     margin: 10px 30px;
   }
 }
+.book-description {
+  width: 90vw;
+  max-width: 95%;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px 80px 10px;
+}
+.book-description p {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
+}
 /* LAPTOP OR BIGGER */
 @media screen and (min-width: 769px) {
   .book-top img {
