@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SET_SEARCH_RESULTS } from "../../action-types";
 import { getSearchResults } from "../../actions/googleBooks";
 import SearchBar from "../Dashboard/SearchBar";
+import "./Search.css";
 
 export default function Search() {
   const dispatch = useDispatch();
@@ -17,11 +18,11 @@ export default function Search() {
     updateSearchResults();
   }, [q]);
   return (
-    <div>
+    <div className="search">
       <SearchBar />
       {searchResults
         ? searchResults.items.map((book) => (
-            <a href={`/book/${book.id}`}>
+            <a className="search-result grow" href={`/book/${book.id}`}>
               <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
               <p>{book?.volumeInfo?.title}</p>
             </a>

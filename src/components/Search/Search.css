@@ -1,0 +1,32 @@
+.search {
+  margin: 60px 0px 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  gap: 20px;
+}
+.search-result {
+  min-width: 40vw;
+  display: flex;
+  border-radius: 8px;
+}
+.search-result img {
+  height: 200px;
+  width: 150px;
+  object-fit: cover;
+
+  border-radius: 8px 0px 0px 8px;
+}
+.search a:nth-child(3n + 1) {
+  background-color: var(--color-4);
+}
+.search a:nth-child(3n + 2) {
+  background-color: var(--color-6);
+}
+.search a:nth-child(3n + 3) {
+  background-color: var(--color-5);
+}
+/* .search a:nth-child(3) {
+  background-color: var(--color-1);
+} */
