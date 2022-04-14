@@ -53,19 +53,30 @@ export default function BookShelfSelector() {
   };
 
   return (
-    <div>
-      <p>Which shelves should this book be on?</p>
+    <div className="book-shelf-selector white shadow">
+      <p className="book-shelf-selector-title">
+        Which shelves should this book be on?
+      </p>
       <form>
         {Object.keys(books).map((shelf) =>
           shelf === "all" ? null : (
-            <div key={shelf}>
+            <div className="book-shelf-selector-choice" key={shelf}>
               <input type="checkbox" name={shelf} />
               <label>{shelf.toUpperCase()}</label>
             </div>
           )
         )}
-        <button onClick={(e) => updateShelves(e)}>Submit</button>
-        <button onClick={closeShelves}>Go Back</button>
+        <div className="book-shelf-selector-buttons">
+          <button
+            className="button-default color-1"
+            onClick={(e) => updateShelves(e)}
+          >
+            Submit
+          </button>
+          <button className="button-default color-1" onClick={closeShelves}>
+            Go Back
+          </button>
+        </div>
       </form>
     </div>
   );

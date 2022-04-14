@@ -23,19 +23,36 @@ export default function BookLog() {
   }, [allBooks]);
 
   return (
-    <div>
-      {currentLogEntries?.map((entry) => (
-        <div>
-          <p>Date</p>
-          <p>{entry.date}</p>
-          <p>Pages Read</p>
-          <p>{entry.pagesRead}</p>
-          <p>Notes</p>
-          <p>{entry.notes}</p>
+    <div className="book-log color-6 shadow">
+      <p className="book-log-title">Log</p>
+      <div className="book-log-entries">
+        {currentLogEntries?.map((entry) => (
+          <div className="book-log-entry white shadow">
+            <div className="book-log-entry-field">
+              <p className="book-log-entry-title">Date</p>
+              <p className="book-log-entry-data">{entry.date}</p>
+            </div>
+            <div className="book-log-entry-field">
+              <p className="book-log-entry-title">Pages Read</p>
+              <p className="book-log-entry-data">{entry.pagesRead}</p>
+            </div>
+            <div className="book-log-entry-field">
+              <p className="book-log-entry-title">Notes</p>
+              <p className="book-log-entry-data">{entry.notes}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {newEntry == true ? (
+        <BookEntryForm />
+      ) : (
+        <div className="book-entry-button">
+          <button className=" button-larger color-1" onClick={setNewEntry}>
+            Add Entry
+          </button>{" "}
         </div>
-      ))}
-      <button onClick={setNewEntry}>Add Entry</button>
-      {newEntry == true ? <BookEntryForm /> : null}
+      )}
     </div>
   );
 }

@@ -63,20 +63,36 @@ export default function BookButtons() {
 
   return (
     <div>
-      {bookOnShelf(currentBookId, allBooks) ? (
-        <>
-          <button onClick={selectShelves}>Edit Shelves</button>
-          <button
-            onClick={() => removeBook(["all", "current", "favorites", "tbr"])}
-          >
-            Remove from My Books
-          </button>
-        </>
-      ) : (
-        <button onClick={() => addToBooks("all")}>Add to My Books</button>
-      )}
+      <div className="book-buttons">
+        {bookOnShelf(currentBookId, allBooks) ? (
+          <>
+            <button className="button-larger color-1" onClick={selectShelves}>
+              Edit Shelves
+            </button>
 
-      <button onClick={() => navigate("/dashboard")}>Back to My Shelves</button>
+            <button
+              className="button-larger color-1"
+              onClick={() => removeBook(["all", "current", "favorites", "tbr"])}
+            >
+              Remove from My Books
+            </button>
+          </>
+        ) : (
+          <button
+            className="button-larger color-1"
+            onClick={() => addToBooks("all")}
+          >
+            Add to My Books
+          </button>
+        )}
+
+        <button
+          className="button-larger color-1"
+          onClick={() => navigate("/dashboard")}
+        >
+          Back to Shelves
+        </button>
+      </div>
       {editShelves ? <BookShelfSelector /> : null}
     </div>
   );

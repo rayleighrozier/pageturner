@@ -37,15 +37,31 @@ export default function BookEntryForm() {
     setNewEntry(false);
   };
   return (
-    <div>
-      <form>
-        <input type="date" />
-        <p>Total Pages Read</p>
-        <input type="number" />
-        <p>Notes</p>
-        <textarea />
-        <button onClick={(e) => sendEntry(e)}>Submit Entry</button>
-        <button onClick={() => setNewEntry(false)}>Go Back</button>
+    <div className="book-entry-form-container white shadow">
+      <form className="book-entry-form">
+        <input className="book-entry-date" type="date" />
+        <div className="book-entry-pages">
+          <p>Pages Read</p>
+          <input type="number" />
+        </div>
+        <div className="book-entry-notes">
+          <p>Notes</p>
+          <textarea />
+        </div>
+        <div className="book-entry-buttons">
+          <button
+            className="button-default color-1"
+            onClick={(e) => sendEntry(e)}
+          >
+            Submit Entry
+          </button>
+          <button
+            className="button-default color-1"
+            onClick={() => setNewEntry(false)}
+          >
+            Go Back
+          </button>
+        </div>
       </form>
     </div>
   );

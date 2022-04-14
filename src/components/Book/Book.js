@@ -8,6 +8,7 @@ import { getPercentage } from "../../actions/format";
 import BookLog from "./BookLog";
 import BookDescription from "./BookDescription";
 import BookButtons from "./BookButtons";
+import "./Book.css";
 
 export default function Book() {
   const dispatch = useDispatch();
@@ -29,19 +30,29 @@ export default function Book() {
   }, []);
 
   return (
-    <div>
-      <img
-        key={currentBook?.volumeInfo?.imageLinks?.thumbnail}
-        src={currentBook?.volumeInfo?.imageLinks?.thumbnail}
-      />
-      <p key={currentBook?.title}>{currentBook?.volumeInfo?.title}</p>
-
+    <div className="book color-7">
+      <div className="book-top color-2">
+        <img
+          key={currentBook?.volumeInfo?.imageLinks?.thumbnail}
+          src={currentBook?.volumeInfo?.imageLinks?.thumbnail}
+        />
+        <div className="book-top-text">
+          <p className="book-top-title" key={currentBook?.title}>
+            {currentBook?.volumeInfo?.title}
+          </p>{" "}
+          {bookOnShelf(id, allBooks) ? (
+            <>
+              <div className="book-progress">
+                <p>{`${pagesRead} of ${totalPages} pages read`}</p>
+                <p>{`${percentage}% complete`}</p>
+              </div>
+            </>
+          ) : null}
+        </div>
+      </div>
+      <BookButtons />
       {bookOnShelf(id, allBooks) ? (
         <>
-          <div>
-            <p>{`${pagesRead} of ${totalPages} pages read`}</p>
-            <p>{`${percentage}% complete`}</p>
-          </div>
           <BookLog />
         </>
       ) : (
@@ -49,7 +60,6 @@ export default function Book() {
           <BookDescription />
         </>
       )}
-      <BookButtons />
     </div>
   );
 }
