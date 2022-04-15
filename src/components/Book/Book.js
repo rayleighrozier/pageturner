@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_CURRENT_BOOK, SET_PAGE } from "../../action-types";
 import { getSingleBook } from "../../actions/googleBooks";
-import { bookOnShelf, getPagesRead } from "../../actions/book";
+import { bookOnShelf, getPagesRead, findIndexOfBook } from "../../actions/book";
 import { getPercentage } from "../../actions/format";
 import BookLog from "./BookLog";
 import BookDescription from "./BookDescription";
@@ -16,8 +16,12 @@ export default function Book() {
   const currentBook = useSelector((state) => state.currentBook);
   const totalPages = currentBook?.volumeInfo?.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
-  const pagesRead = getPagesRead(id, allBooks);
-  const percentage = getPercentage(pagesRead, totalPages);
+  const index = findIndexOfBook(id, allBooks);
+  const pageCount = useSelector(
+    (state) => state.user.books.all[index].pagesRead
+  );
+  let pagesRead = getPagesRead(id, allBooks);
+  let percentage = getPercentage(pagesRead, totalPages);
 
   const updateCurrentBook = async () => {
     let data = await getSingleBook(id);
@@ -28,6 +32,11 @@ export default function Book() {
     dispatch({ type: SET_PAGE, payload: "Book" });
     getPagesRead(id, allBooks);
   }, []);
+
+  useEffect(() => {
+    pagesRead = getPagesRead(id, allBooks);
+    percentage = getPercentage(pagesRead, totalPages);
+  }, [pageCount]);
 
   return (
     <div className="book color-7">
