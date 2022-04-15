@@ -4,13 +4,13 @@
       "id": "FwEXEAAAQBAJ",
       "log": [
         {
-          "date": "2022-03-04",
-          "pagesRead": "10",
+          "date": "04/03/2022",
+          "pagesRead": "45",
           "notes": "Just starting"
         },
         {
-          "date": "2022-13-04",
-          "pagesRead": "45",
+          "date": "04/13/2022",
+          "pagesRead": "10",
           "notes": "End of chapter 3"
         }
       ],
@@ -21,14 +21,14 @@
       "id": "sq5WzgEACAAJ",
       "log": [
         {
-          "date": "2022-01-02",
-          "pagesRead": "102",
-          "notes": "Lazy day reading"
-        },
-        {
-          "date": "2022-03-03",
+          "date": "03/03/2022",
           "pagesRead": "45",
           "notes": "Picking up after a long time"
+        },
+        {
+          "date": "03/15/2022",
+          "pagesRead": "102",
+          "notes": "Lazy day reading"
         }
       ],
       "pagesRead": 147,
@@ -38,22 +38,22 @@
       "id": "VY8zEAAAQBAJ",
       "log": [
         {
-          "date": "2022-06-04",
+          "date": "04/01/2022",
           "pagesRead": "12",
           "notes": "Starting for  April book club"
         },
         {
-          "date": "2022-10-04",
+          "date": "04/10/2022",
           "pagesRead": "60",
           "notes": ""
         },
         {
-          "date": "2022-11-04",
+          "date": "04/11/2022",
           "pagesRead": "73",
           "notes": "Quote on page 83"
         },
         {
-          "date": "2022-13-04",
+          "date": "04/13/2022",
           "pagesRead": "23",
           "notes": ""
         }
@@ -72,30 +72,81 @@
       "log": [],
       "pagesRead": 0,
       "totalPages": 272
+    },
+    {
+      "id": "njVpDQAAQBAJ",
+      "log": [
+        {
+          "date": "04/15/2022",
+          "pagesRead": "23",
+          "notes": "dasdasd"
+        }
+      ],
+      "pagesRead": 23,
+      "totalPages": 400
+    },
+    {
+      "id": "xqRPEAAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 400
+    },
+    {
+      "id": "UNEDEAAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 304
+    },
+    {
+      "id": "vH3LDwAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 480
+    },
+    {
+      "id": "Kn4eEAAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 592
+    },
+    {
+      "id": "og7tDwAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 648
     }
   ],
   "current": [
-    {
-      "id": "FwEXEAAAQBAJ"
-    },
     {
       "id": "sq5WzgEACAAJ"
     },
     {
       "id": "VY8zEAAAQBAJ"
+    },
+    {
+      "id": "UNEDEAAAQBAJ"
+    },
+    {
+      "id": "FwEXEAAAQBAJ"
     }
   ],
-
   "favorites": [
+    {
+      "id": "xqRPEAAAQBAJ"
+    },
     {
       "id": "njVpDQAAQBAJ"
     },
     {
-      "id": "hqsTnQEACAAJ"
-    },
-    {
-      "id": "FCTYDwAAQBAJ"
+      "id": "vH3LDwAAQBAJ"
     }
   ],
-  "tbr": []
+  "tbr": [
+    {
+      "id": "Kn4eEAAAQBAJ"
+    },
+    {
+      "id": "og7tDwAAQBAJ"
+    }
+  ]
 }

@@ -6,6 +6,7 @@ import {
   UPDATE_PAGE_COUNT,
 } from "../../action-types";
 import { findIndexOfBook } from "../../actions/book";
+import { formatDate } from "../../actions/format";
 
 export default function BookEntryForm() {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ export default function BookEntryForm() {
   };
   const captureEntry = (e) => {
     e.preventDefault();
+    const date = formatDate(e.target.form[0].value);
     let input = {
-      date: e.target.form[0].value,
+      date: date,
       pagesRead: e.target.form[1].value,
       notes: e.target.form[2].value,
     };

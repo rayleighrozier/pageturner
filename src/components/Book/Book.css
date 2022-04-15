@@ -234,26 +234,44 @@ textarea {
   .book-shelf-selector {
     width: 90vw;
   }
-
+  .book-top-title {
+    font-size: 2rem;
+    margin: 10px;
+  }
   .book-log-title {
     font-size: 1.8rem;
   }
   .book-entry-form-container {
     width: 95vw;
-    min-width: 85vw;
+    min-width: 90vw;
+    margin: 0;
+  }
+  .book-entry-notes {
+    flex-direction: column;
   }
   .book-entry-pages {
-    flex-direction: column;
     height: fit-content;
+    align-items: center;
   }
 
   .book-entry-notes {
     flex-direction: column;
     height: fit-content;
+    align-items: center;
+  }
+  .book-entry-notes p {
+    margin: 0;
   }
   .book-entry-notes textarea {
     width: 150px;
     margin: 0px 10px;
+  }
+  .book-entry-pages {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .book-progress {
+    justify-content: center;
   }
 }
 /* TABLET */
@@ -268,6 +286,7 @@ textarea {
   }
   .book-top-title {
     font-size: 2rem;
+    margin: 10px;
   }
   .book-buttons {
     margin: 10px;
@@ -290,17 +309,15 @@ textarea {
     font-size: 2.2rem;
   }
   .book-entry-form-container {
-    width: 85vw;
+    width: 95vw;
+    min-width: 90vw;
+    margin: 0;
   }
 
-  .book-entry-pages {
-    flex-direction: column;
-  }
   .book-entry-notes {
     flex-direction: column;
   }
   .book-entry-pages {
-    flex-direction: column;
     height: fit-content;
     align-items: center;
   }
@@ -309,10 +326,16 @@ textarea {
     flex-direction: column;
     height: fit-content;
     align-items: center;
+  }
+  .book-entry-notes p {
+    margin: 0;
   }
   .book-entry-notes textarea {
     width: 150px;
     margin: 0px 10px;
+  }
+  .book-progress {
+    justify-content: center;
   }
 }
 /* LAPTOP OR BIGGER */
