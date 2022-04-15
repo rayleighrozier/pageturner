@@ -9,7 +9,7 @@ import {
 } from "../../action-types";
 import { userGetBooks, userSignOut } from "../../actions/supabase";
 import { getSingleBook } from "../../actions/googleBooks";
-import Error from "../Error";
+import Error from "../Error/Error";
 import Current from "./Current";
 import SearchBar from "./SearchBar";
 import DashboardShelves from "./DashboardShelves";

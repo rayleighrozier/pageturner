@@ -4,7 +4,7 @@ import Home from "./components/Home/Home";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Book from "./components/Book/Book";
 import Search from "./components/Search/Search";
-import Shelf from "./components/Shelf/Shelf";
+import Error from "./components/Error/Error";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/book/:id" element={<Book />} />
             <Route path="/search/:q" element={<Search />} />
-            <Route path="/shelf/:shelf" element={<Shelf />} />
+            <Route path="*" element={<Error />} />
           </Route>
         </Routes>
       </BrowserRouter>
