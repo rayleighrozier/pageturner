@@ -1,16 +1,14 @@
 <div align="center">
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
   <h1>Pageturner</h1>
   
   <p>
     An app to track track your reading progress and organize your books online.
   </p>
 
-<!-- Table of Contents -->
-
 # Table of Contents
 
+<details>
 - [About the Project](#about-the-project)
   - [Tech Stack](#tech-stack)
   - [Features](#features)
@@ -22,6 +20,7 @@
   - [Run Locally](#run-locally)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
+</details>
 
 ## About the Project
 
@@ -31,7 +30,6 @@
 
 ### Tech Stack
 
-<details>
   <ul>
     <li><p>React</p></li>
     <li><p>Redux</p></li>
@@ -40,7 +38,6 @@
     <li><p>HTML</p></li>
   <li><p>CSS</p></li>
   </ul>
-</details>
 
 ### Features
 
