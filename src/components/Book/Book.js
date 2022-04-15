@@ -16,13 +16,9 @@ export default function Book() {
   const currentBook = useSelector((state) => state.currentBook);
   const totalPages = currentBook?.volumeInfo?.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
-  const index = findIndexOfBook(id, allBooks);
-  const pageCount = useSelector(
-    (state) => state.user.books.all[index].pagesRead
-  );
+
   let pagesRead = getPagesRead(id, allBooks);
   let percentage = getPercentage(pagesRead, totalPages);
-
   const updateCurrentBook = async () => {
     let data = await getSingleBook(id);
     dispatch({ type: SET_CURRENT_BOOK, payload: data });
@@ -30,13 +26,7 @@ export default function Book() {
   useEffect(() => {
     updateCurrentBook();
     dispatch({ type: SET_PAGE, payload: "Book" });
-    getPagesRead(id, allBooks);
   }, []);
-
-  useEffect(() => {
-    pagesRead = getPagesRead(id, allBooks);
-    percentage = getPercentage(pagesRead, totalPages);
-  }, [pageCount]);
 
   return (
     <div className="book color-7">

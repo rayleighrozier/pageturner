@@ -20,7 +20,6 @@ const removeTags = (str) => {
 
 const formatDate = (date) => {
   const [year, month, day] = date.split("-");
-  // const result = [month, day, year].join("/");
   return [month, day, year].join("/");
 };
 
