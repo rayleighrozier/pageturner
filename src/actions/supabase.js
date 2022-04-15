@@ -42,6 +42,10 @@ const userGetBooks = async (id) => {
 };
 
 const userUpdateBooks = async (id, updatedBooks) => {
+  console.log(
+    "userUpdate books triggered, this is what is sending up to supabase:",
+    updatedBooks
+  );
   let { data: reader, error } = await supabase
     .from("readers")
     .update({ books: updatedBooks })

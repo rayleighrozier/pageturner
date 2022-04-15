@@ -7,8 +7,14 @@ const getPercentage = (partial, total) => {
 };
 
 const removeTags = (str) => {
+  console.log(str);
   if (str === null || str === "") return false;
-  else str = str.toString();
+  else
+    try {
+      str = str.toString();
+    } catch (exception) {
+      return false;
+    }
   return str.replace(/(<([^>]+)>)/gi, "");
 };
 

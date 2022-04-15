@@ -6,7 +6,7 @@ export default function BookDescription() {
   const currentBook = useSelector((state) => state.currentBook);
   const description = removeTags(currentBook?.volumeInfo?.description);
   return (
-    <div className="book-description color-6 shadow">
+    <div className="book-description white shadow">
       <p>{description}</p>
     </div>
   );

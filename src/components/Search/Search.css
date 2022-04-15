@@ -23,6 +23,7 @@
   align-items: center;
   border-radius: 8px;
   margin: 20px 0px;
+  flex-grow: 1;
 }
 .search-result img {
   height: 200px;
@@ -38,8 +39,8 @@
   width: 100%;
   max-width: 100%;
   margin: 0px 10px;
-  background-color: var(--color-4);
-  color: white;
+  /* background-color: var(--color-4); */
+  /* color: white; */
   margin: 0px;
 }
 /* MOBILE */
@@ -58,8 +59,6 @@
     width: 100%;
     max-width: 100%;
     font-size: 1.4rem;
-  }
-  .book-log-entry-field {
   }
 }
 /* LAPTOP OR BIGGER */

@@ -46,6 +46,7 @@ export default function BookButtons() {
 
   const selectShelves = () => {
     dispatch({ type: EDIT_SHELVES, payload: true });
+    userUpdateBooks(id, books);
   };
 
   const removeBook = (shelves) => {
@@ -57,6 +58,7 @@ export default function BookButtons() {
           shelf: shelf,
         },
       });
+      userUpdateBooks(id, books);
     }
   };
 

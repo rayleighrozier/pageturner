@@ -14,7 +14,7 @@ export default function Book() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const currentBook = useSelector((state) => state.currentBook);
-  const totalPages = currentBook.volumeInfo.pageCount;
+  const totalPages = currentBook?.volumeInfo?.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
   const pagesRead = getPagesRead(id, allBooks);
   const percentage = getPercentage(pagesRead, totalPages);

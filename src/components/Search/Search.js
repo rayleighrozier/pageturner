@@ -24,7 +24,7 @@ export default function Search() {
         {searchResults
           ? searchResults?.items.map((book) => (
               <a
-                className="search-result grow white shadow"
+                className="search-result grow-tiny white shadow"
                 href={`/book/${book.id}`}
               >
                 <img src={book?.volumeInfo?.imageLinks?.thumbnail} />

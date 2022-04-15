@@ -214,8 +214,8 @@ textarea {
   margin: 20px 10px 80px 10px;
 }
 .book-description p {
-  color: white;
-  font-weight: bold;
+  color: var(--color-1);
+
   text-align: center;
   width: 90%;
 }

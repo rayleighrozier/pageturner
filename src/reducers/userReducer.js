@@ -42,6 +42,7 @@ function user(state = defaultState, action) {
       return { ...state, googleData: action.payload };
     }
     case ADD_USER_BOOK: {
+      console.log("incoming shelf", action.payload.shelf);
       return bookOnShelf(
         action.payload.book.id,
         state.books[action.payload.shelf]
@@ -62,16 +63,15 @@ function user(state = defaultState, action) {
       let index = state.books[action.payload.shelf].findIndex(
         (book) => book.id === action.payload.book.id
       );
-      state.books[action.payload.shelf].splice(index, 1);
-      return index !== -1
-        ? {
-            ...state,
-            books: {
-              ...state.books,
-            },
-          }
-        : state;
+      console.log("indexxx and shelf", index, action.payload.shelf);
+      if (index !== -1) {
+        state.books[action.payload.shelf].splice(index, 1);
+      }
+      return {
+        ...state,
+      };
     }
+
     case ADD_BOOK_LOG: {
       state.books.all[action.payload.index].log.push(action.payload.newLog);
       return {

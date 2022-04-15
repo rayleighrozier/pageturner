@@ -16,11 +16,12 @@ export default function BookLog() {
     allBooks[findIndexOfBook(currentBookId, allBooks)]?.log;
   const setNewEntry = () => {
     dispatch({ type: SET_NEW_ENTRY, payload: true });
+    userUpdateBooks(id, books);
   };
 
-  useEffect(() => {
-    userUpdateBooks(id, books);
-  }, [allBooks]);
+  // useEffect(() => {
+  //   userUpdateBooks(id, books);
+  // }, [allBooks]);
 
   return (
     <div className="book-log color-6 shadow">
