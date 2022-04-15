@@ -62,9 +62,6 @@ html {
   font-family: var(--font-accent);
 }
 
-/* .home-input p {
-  text-align: right;
-} */
 /* MOBILE */
 @media screen and (max-width: 480px) {
   .home-title {

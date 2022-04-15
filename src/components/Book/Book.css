@@ -32,19 +32,16 @@
 }
 .book-progress {
   display: flex;
-  /* flex-direction: column; */
   gap: 20px;
   font-weight: 200;
-  /* justify-content: space-evenly; */
 }
 .book-progress p {
   border-radius: 8px;
   margin: 0;
   padding: 0;
   width: 50%;
-  /* text-align: center; */
+
   color: white;
-  /* font-weight: 400; */
   font-size: 1.4rem;
   text-align: left;
   width: auto;
@@ -55,7 +52,6 @@
   width: 90vw;
   height: auto;
   justify-content: center;
-  /* flex-direction: column; */
   align-items: center;
   padding: 20px;
   margin: 20px 0px 80px 20px;
@@ -71,6 +67,7 @@
 .book-log-title {
   font-family: var(--font-accent);
   color: white;
+  margin: 0px;
 }
 .book-buttons {
   display: flex;
@@ -186,7 +183,7 @@ textarea {
 
 .book-log-entry {
   display: flex;
-  /* flex-direction: column; */
+
   gap: 30px;
   padding: 5px 10px;
   border-radius: 8px;
@@ -196,6 +193,7 @@ textarea {
 }
 .book-log-entry-field {
   display: flex;
+
   gap: 10px;
 }
 .book-log-entry-title {
@@ -204,6 +202,22 @@ textarea {
 }
 .book-log-entry-data {
   color: var(--color-1);
+}
+.book-description {
+  width: 90vw;
+  max-width: 95%;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  margin: 20px 10px 80px 10px;
+}
+.book-description p {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
@@ -219,6 +233,27 @@ textarea {
   }
   .book-shelf-selector {
     width: 90vw;
+  }
+
+  .book-log-title {
+    font-size: 1.8rem;
+  }
+  .book-entry-form-container {
+    width: 95vw;
+    min-width: 85vw;
+  }
+  .book-entry-pages {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .book-entry-notes {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .book-entry-notes textarea {
+    width: 150px;
+    margin: 0px 10px;
   }
 }
 /* TABLET */
@@ -250,22 +285,35 @@ textarea {
   .book-shelf-selector-title {
     margin: 10px 30px;
   }
-}
-.book-description {
-  width: 90vw;
-  max-width: 95%;
-  border-radius: 8px;
-  padding: 20px;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  margin: 20px 10px 80px 10px;
-}
-.book-description p {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  width: 90%;
+
+  .book-log-title {
+    font-size: 2.2rem;
+  }
+  .book-entry-form-container {
+    width: 85vw;
+  }
+
+  .book-entry-pages {
+    flex-direction: column;
+  }
+  .book-entry-notes {
+    flex-direction: column;
+  }
+  .book-entry-pages {
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+  }
+
+  .book-entry-notes {
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+  }
+  .book-entry-notes textarea {
+    width: 150px;
+    margin: 0px 10px;
+  }
 }
 /* LAPTOP OR BIGGER */
 @media screen and (min-width: 769px) {

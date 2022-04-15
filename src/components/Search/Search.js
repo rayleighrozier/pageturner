@@ -22,7 +22,7 @@ export default function Search() {
       <SearchBar />
       <div className="search-results-container">
         {searchResults
-          ? searchResults.items.map((book) => (
+          ? searchResults?.items.map((book) => (
               <a
                 className="search-result grow white shadow"
                 href={`/book/${book.id}`}

@@ -91,6 +91,7 @@ input:focus {
   opacity: 0.8;
 }
 
+/* templates for other css pages */
 /* MOBILE */
 @media screen and (max-width: 480px) {
 }

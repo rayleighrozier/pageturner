@@ -21,9 +21,7 @@ export default function Nav() {
       </div>
       <div className="nav-links">
         <a href="/">Shelves</a>
-        <a href={`/search/${searchResults?.items[0]?.volumeInfo?.title}`}>
-          Search
-        </a>
+        <a href="/">Search</a>
         <a onClick={signOut} href="/">
           Sign Out
         </a>

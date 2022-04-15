@@ -28,7 +28,6 @@ export default function BookShelfSelector() {
     let selection = captureSelection(e);
     for (const shelf in selection) {
       if (selection[shelf] === true) {
-        console.log("selection[shelf] is true", shelf, selection[shelf]);
         dispatch({
           type: ADD_USER_BOOK,
           payload: {
@@ -38,7 +37,6 @@ export default function BookShelfSelector() {
         });
       }
       if (selection[shelf] === false) {
-        console.log("selection[shelf] is false", shelf, selection[shelf]);
         dispatch({
           type: REMOVE_USER_BOOK,
           payload: {

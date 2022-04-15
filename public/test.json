@@ -1,0 +1,101 @@
+{
+  "all": [
+    {
+      "id": "FwEXEAAAQBAJ",
+      "log": [
+        {
+          "date": "2022-03-04",
+          "pagesRead": "10",
+          "notes": "Just starting"
+        },
+        {
+          "date": "2022-13-04",
+          "pagesRead": "45",
+          "notes": "End of chapter 3"
+        }
+      ],
+      "pagesRead": 55,
+      "totalPages": 384
+    },
+    {
+      "id": "sq5WzgEACAAJ",
+      "log": [
+        {
+          "date": "2022-01-02",
+          "pagesRead": "102",
+          "notes": "Lazy day reading"
+        },
+        {
+          "date": "2022-03-03",
+          "pagesRead": "45",
+          "notes": "Picking up after a long time"
+        }
+      ],
+      "pagesRead": 147,
+      "totalPages": 320
+    },
+    {
+      "id": "VY8zEAAAQBAJ",
+      "log": [
+        {
+          "date": "2022-06-04",
+          "pagesRead": "12",
+          "notes": "Starting for  April book club"
+        },
+        {
+          "date": "2022-10-04",
+          "pagesRead": "60",
+          "notes": ""
+        },
+        {
+          "date": "2022-11-04",
+          "pagesRead": "73",
+          "notes": "Quote on page 83"
+        },
+        {
+          "date": "2022-13-04",
+          "pagesRead": "23",
+          "notes": ""
+        }
+      ],
+      "pagesRead": 168,
+      "totalPages": 400
+    },
+    {
+      "id": "hqsTnQEACAAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 544
+    },
+    {
+      "id": "FCTYDwAAQBAJ",
+      "log": [],
+      "pagesRead": 0,
+      "totalPages": 272
+    }
+  ],
+  "current": [
+    {
+      "id": "FwEXEAAAQBAJ"
+    },
+    {
+      "id": "sq5WzgEACAAJ"
+    },
+    {
+      "id": "VY8zEAAAQBAJ"
+    }
+  ],
+
+  "favorites": [
+    {
+      "id": "njVpDQAAQBAJ"
+    },
+    {
+      "id": "hqsTnQEACAAJ"
+    },
+    {
+      "id": "FCTYDwAAQBAJ"
+    }
+  ],
+  "tbr": []
+}
