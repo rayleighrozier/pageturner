@@ -20,14 +20,19 @@ export default function Search() {
   return (
     <div className="search">
       <SearchBar />
-      {searchResults
-        ? searchResults.items.map((book) => (
-            <a className="search-result grow" href={`/book/${book.id}`}>
-              <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
-              <p>{book?.volumeInfo?.title}</p>
-            </a>
-          ))
-        : null}
+      <div className="search-results-container">
+        {searchResults
+          ? searchResults.items.map((book) => (
+              <a
+                className="search-result grow white shadow"
+                href={`/book/${book.id}`}
+              >
+                <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
+                <p>{book?.volumeInfo?.title}</p>
+              </a>
+            ))
+          : null}
+      </div>
     </div>
   );
 }

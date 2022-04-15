@@ -16,9 +16,7 @@ export default function DashboardShelves() {
       <p className="dashboard-shelves-title">Shelves</p>
       <div className="dashboard-shelves">
         <div className="dashboard-shelf shadow color-6">
-          <a className="dashboard-shelf-title" href="/shelf/tbr">
-            TBR
-          </a>
+          <p className="dashboard-shelf-title">TBR</p>
           <div className="dashboard-shelf-books">
             {tbrGoogleData?.map((book) => {
               return (
@@ -37,9 +35,7 @@ export default function DashboardShelves() {
           </div>
         </div>
         <div className="dashboard-shelf shadow color-5">
-          <a className="dashboard-shelf-title" href="/shelf/favorites">
-            Favorites
-          </a>
+          <p className="dashboard-shelf-title">Favorites</p>
           <div className="dashboard-shelf-books">
             {favoritesGoogleData?.map((book) => {
               return (
@@ -58,9 +54,7 @@ export default function DashboardShelves() {
           </div>
         </div>
         <div className="dashboard-shelf color-4 shadow">
-          <a className="dashboard-shelf-title" href="/shelf/current">
-            Current
-          </a>
+          <p className="dashboard-shelf-title">Current</p>
           <div className="dashboard-shelf-books">
             {currentGoogleData?.map((book) => {
               return (
