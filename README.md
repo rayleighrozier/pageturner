@@ -49,10 +49,10 @@
 
 | Color           | Hex                                                              |
 | --------------- | ---------------------------------------------------------------- |
-| Primary Color   | ![#565faf](https://via.placeholder.com/10/222831?text=+) #565faf |
-| Secondary Color | ![#fe7b98](https://via.placeholder.com/10/393E46?text=+) #fe7b98 |
-| Accent Color    | ![#f9bac0](https://via.placeholder.com/10/00ADB5?text=+) #f9bac0 |
-| Accent Color    | ![#ffbc54](https://via.placeholder.com/10/EEEEEE?text=+) #ffbc54 |
+| Primary Color   | ![#565faf](https://via.placeholder.com/10/565faf?text=+) #565faf |
+| Secondary Color | ![#fe7b98](https://via.placeholder.com/10/fe7b98?text=+) #fe7b98 |
+| Accent Color    | ![#f9bac0](https://via.placeholder.com/10/f9bac0?text=+) #f9bac0 |
+| Accent Color    | ![#ffbc54](https://via.placeholder.com/10/ffbc54?text=+) #ffbc54 |
 
 ### Environment Variables
 
