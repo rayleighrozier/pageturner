@@ -22,7 +22,6 @@ const defaultState = {
 function user(state = defaultState, action) {
   switch (action.type) {
     case TEST_USER:
-      console.log(state);
       return state;
     case SET_SIGNED_IN:
       if (action.payload === false) {
@@ -42,7 +41,6 @@ function user(state = defaultState, action) {
       return { ...state, googleData: action.payload };
     }
     case ADD_USER_BOOK: {
-      console.log("incoming shelf", action.payload.shelf);
       return bookOnShelf(
         action.payload.book.id,
         state.books[action.payload.shelf]
@@ -63,7 +61,7 @@ function user(state = defaultState, action) {
       let index = state.books[action.payload.shelf].findIndex(
         (book) => book.id === action.payload.book.id
       );
-      console.log("indexxx and shelf", index, action.payload.shelf);
+
       if (index !== -1) {
         state.books[action.payload.shelf].splice(index, 1);
       }

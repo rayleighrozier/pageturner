@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  SET_BOOKS,
-  SET_GOOGLE_DATA,
-  SET_SIGNED_IN,
-  SET_PAGE,
-} from "../../action-types";
-import { userGetBooks, userSignOut } from "../../actions/supabase";
+import { SET_BOOKS, SET_GOOGLE_DATA, SET_PAGE } from "../../action-types";
+import { userGetBooks } from "../../actions/supabase";
 import { getSingleBook } from "../../actions/googleBooks";
 import Error from "../Error/Error";
 import Current from "./Current";
@@ -17,7 +11,6 @@ import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const signedIn = useSelector((state) => state.user.signedIn);
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);

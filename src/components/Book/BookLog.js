@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_NEW_ENTRY } from "../../action-types";
 import { userUpdateBooks } from "../../actions/supabase";
@@ -18,10 +18,6 @@ export default function BookLog() {
     dispatch({ type: SET_NEW_ENTRY, payload: true });
     userUpdateBooks(id, books);
   };
-
-  // useEffect(() => {
-  //   userUpdateBooks(id, books);
-  // }, [allBooks]);
 
   return (
     <div className="book-log color-6 shadow">

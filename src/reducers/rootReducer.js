@@ -6,7 +6,6 @@ import editShelves from "./editShelvesReducer";
 import search from "./searchReducer";
 import searchResults from "./searchResultsReducer";
 import newEntry from "./newEntryReducer";
-import shelved from "./shelvedReducer";
 
 export default combineReducers({
   user,
@@ -16,5 +15,4 @@ export default combineReducers({
   search,
   searchResults,
   newEntry,
-  shelved,
 });

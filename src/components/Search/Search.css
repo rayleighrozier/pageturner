@@ -39,9 +39,6 @@
   width: 100%;
   max-width: 100%;
   margin: 0px 10px;
-  /* background-color: var(--color-4); */
-  /* color: white; */
-  margin: 0px;
 }
 /* MOBILE */
 @media screen and (max-width: 480px) {
