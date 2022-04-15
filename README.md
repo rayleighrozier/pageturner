@@ -119,4 +119,5 @@ Rayleigh Rozier - [LinkedIn](https://www.linkedin.com/in/rayleighrozier/) - rayl
 
 Project Link: [https://github.com/rayleighrozier/pageturner](https://github.com/rayleighrozier/pageturner)
 
-I wrote more about this project on DEV.
+I [wrote more about this project](https://dev.to/rayleighrozier/using-react-to-improve-the-state-ha-of-my-library-5hef) on DEV. 
+  
