@@ -3,7 +3,7 @@
   <h1>Pageturner</h1>
   
   <p>
-    An app to track track your reading progress and organize your books online.
+    An app to track your reading progress and organize your books online.
   </p>
 
 # Table of Contents
