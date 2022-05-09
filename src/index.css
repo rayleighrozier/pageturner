@@ -8,7 +8,6 @@ body {
   --font-main: "Manrope", sans-serif;
   --font-accent: "Lora", serif;
   --color-1: #565faf;
-
   --color-2: #f1613e;
   --color-3: #fe7b98;
   --color-4: #f9bac0;
@@ -85,7 +84,6 @@ input:focus {
 .button-default:hover {
   opacity: 0.8;
 }
-
 .button-larger {
   font-family: var(--font-main);
   font-size: 1.3rem;
@@ -96,15 +94,4 @@ input:focus {
 }
 .button-larger:hover {
   opacity: 0.8;
-}
-
-/* templates for other css pages */
-/* MOBILE */
-@media screen and (max-width: 480px) {
-}
-/* TABLET */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-}
-/* LAPTOP OR BIGGER */
-@media screen and (min-width: 769px) {
 }
