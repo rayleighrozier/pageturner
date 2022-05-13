@@ -15,6 +15,13 @@ export default function Search() {
     let results = await getSearchResults(q);
     dispatch({ type: SET_SEARCH_RESULTS, payload: results });
   };
+
+  useEffect(() => {
+    if (q) {
+      setNewSearch(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (newSearch) {
       updateSearchResults();

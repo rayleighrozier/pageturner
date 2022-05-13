@@ -15,8 +15,10 @@ export default function SearchBar(props) {
 
   useEffect(() => {
     if (search !== "") {
+      if (props.setNewSearch) {
+        props.setNewSearch(true);
+      }
       navigate(`/search/${search}`);
-      props.setNewSearch(true);
       dispatch({ type: SET_PAGE, payload: "Search" });
       dispatch({ type: SET_SEARCH, payload: "" });
     }
