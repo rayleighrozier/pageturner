@@ -4,7 +4,7 @@ const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const userSignUp = async (email, password) => {
-  const { user, session, error } = await supabase.auth.signUp({
+  const { user, error } = await supabase.auth.signUp({
     email: email,
     password: password,
   });
@@ -15,7 +15,7 @@ const userSignUp = async (email, password) => {
 };
 
 const userSignIn = async (email, password) => {
-  const { user, session, error } = await supabase.auth.signIn({
+  const { user, error } = await supabase.auth.signIn({
     email: email,
     password: password,
   });
@@ -33,7 +33,7 @@ const userSignOut = async () => {
 };
 
 const userGetBooks = async (id) => {
-  let { data: reader, error } = await supabase
+  let { data: reader } = await supabase
     .from("readers")
     .select("*")
     .match({ userid: id });
@@ -42,7 +42,7 @@ const userGetBooks = async (id) => {
 };
 
 const userUpdateBooks = async (id, updatedBooks) => {
-  let { data: reader, error } = await supabase
+  let { data: reader } = await supabase
     .from("readers")
     .update({ books: updatedBooks })
     .match({ userid: id });

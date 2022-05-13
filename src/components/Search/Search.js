@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_SEARCH_RESULTS } from "../../action-types";
@@ -10,16 +10,20 @@ export default function Search() {
   const dispatch = useDispatch();
   const { q } = useParams();
   const searchResults = useSelector((state) => state.searchResults);
+  const [newSearch, setNewSearch] = useState(false);
   const updateSearchResults = async () => {
     let results = await getSearchResults(q);
     dispatch({ type: SET_SEARCH_RESULTS, payload: results });
   };
   useEffect(() => {
-    updateSearchResults();
-  }, [q]);
+    if (newSearch) {
+      updateSearchResults();
+      setNewSearch(false);
+    }
+  }, [newSearch]);
   return (
     <div className="search">
-      <SearchBar />
+      <SearchBar newSearch={newSearch} setNewSearch={setNewSearch} />
       <div className="search-results-container">
         {searchResults
           ? searchResults?.items.map((book) => (
