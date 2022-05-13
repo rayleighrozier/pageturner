@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_CURRENT_BOOK, SET_PAGE } from "../../action-types";
@@ -16,6 +16,7 @@ export default function Book() {
   const dispatch = useDispatch();
   const token = checkToken();
   const { id } = useParams();
+  const [shelved, setShelved] = useState(false);
   const currentBook = useSelector((state) => state.currentBook);
   const totalPages = currentBook?.volumeInfo?.pageCount;
   const allBooks = useSelector((state) => state.user.books.all);
@@ -29,6 +30,9 @@ export default function Book() {
   useEffect(() => {
     updateCurrentBook();
     dispatch({ type: SET_PAGE, payload: "Book" });
+    if (bookOnShelf(id, allBooks)) {
+      setShelved(true);
+    }
   }, []);
 
   return (
@@ -44,7 +48,7 @@ export default function Book() {
               <p className="book-top-title" key={currentBook?.title}>
                 {currentBook?.volumeInfo?.title}
               </p>{" "}
-              {bookOnShelf(id, allBooks) ? (
+              {shelved ? (
                 <>
                   <div className="book-progress">
                     <p>{`${pagesRead} of ${totalPages} pages read`}</p>
@@ -54,8 +58,8 @@ export default function Book() {
               ) : null}
             </div>
           </div>
-          <BookButtons />
-          {bookOnShelf(id, allBooks) ? (
+          <BookButtons shelved={shelved} setShelved={setShelved} />
+          {shelved ? (
             <>
               <BookLog />
             </>

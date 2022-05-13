@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SET_SEARCH_RESULTS, RESET_USER } from "../../action-types";
+import { SET_SEARCH_RESULTS, RESET_USER, SET_PAGE } from "../../action-types";
 import { userSignOut } from "../../actions/supabase";
 import { checkToken } from "../../actions/token";
 import "./Nav.css";
@@ -14,6 +14,7 @@ export default function Nav() {
     userSignOut();
     dispatch({ type: RESET_USER, payload: null });
     dispatch({ type: SET_SEARCH_RESULTS, payload: null });
+    dispatch({ type: SET_PAGE, payload: "SignIn" });
     navigate("/");
   };
   return (
