@@ -12,7 +12,6 @@ import "./Dashboard.css";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const signedIn = useSelector((state) => state.user.signedIn);
   const token = checkToken();
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);

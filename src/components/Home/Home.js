@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { SET_GOOGLE_DATA, SET_BOOKS } from "../../action-types/index";
 import { getSingleBook } from "../../actions/googleBooks";
 import { userGetBooks } from "../../actions/supabase";
+import { checkToken } from "../../actions/token";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignIn/SignUp";
 import "./Home.css";
@@ -12,7 +13,7 @@ import "./Home.css";
 export default function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signedIn = useSelector((state) => state.user.signedIn);
+  const token = checkToken();
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
   const page = useSelector((state) => state.page);
@@ -31,12 +32,12 @@ export default function Home() {
     navigate("/dashboard");
   };
   useEffect(() => {
-    if (signedIn) {
+    if (token) {
       signInProcess(id);
     } else {
       navigate("/");
     }
-  }, [signedIn]);
+  }, [token]);
   return (
     <div className="home">
       <div className="home-sign-in">
