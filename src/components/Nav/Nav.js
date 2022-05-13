@@ -8,7 +8,7 @@ import "./Nav.css";
 export default function Nav() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const searchResults = useSelector((state) => state.searchResults);
+  const signedIn = useSelector((state) => state.user.signedIn);
   const signOut = () => {
     userSignOut();
     dispatch({ type: SET_SIGNED_IN, payload: false });
@@ -20,13 +20,15 @@ export default function Nav() {
       <div className="nav-pageturner">
         <a href="/">pageturner</a>
       </div>
-      <div className="nav-links">
-        <a href="/">Shelves</a>
-        <a href="#">Search</a>
-        <a onClick={signOut} href="/">
-          Sign Out
-        </a>
-      </div>
+      {signedIn ? (
+        <div className="nav-links">
+          <a href="/">Shelves</a>
+          <a href="#">Search</a>
+          <a onClick={signOut} href="/">
+            Sign Out
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }
