@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SET_BOOKS, SET_GOOGLE_DATA, SET_PAGE } from "../../action-types";
 import { userGetBooks } from "../../actions/supabase";
 import { getSingleBook } from "../../actions/googleBooks";
+import { checkToken } from "../../actions/token";
 import Error from "../Error/Error";
 import Current from "./Current";
 import SearchBar from "./SearchBar";
@@ -12,6 +13,7 @@ import "./Dashboard.css";
 export default function Dashboard() {
   const dispatch = useDispatch();
   const signedIn = useSelector((state) => state.user.signedIn);
+  const token = checkToken();
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
   const googleData = useSelector((state) => state.user.googleData);
@@ -36,7 +38,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      {signedIn ? (
+      {token ? (
         <>
           <Current />
           <div className="dashboard-middle">

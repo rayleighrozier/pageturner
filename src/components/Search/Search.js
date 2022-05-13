@@ -3,11 +3,14 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_SEARCH_RESULTS } from "../../action-types";
 import { getSearchResults } from "../../actions/googleBooks";
+import { checkToken } from "../../actions/token";
 import SearchBar from "../Dashboard/SearchBar";
+import Error from "../Error/Error";
 import "./Search.css";
 
 export default function Search() {
   const dispatch = useDispatch();
+  const token = checkToken();
   const { q } = useParams();
   const searchResults = useSelector((state) => state.searchResults);
   const [newSearch, setNewSearch] = useState(false);
@@ -28,22 +31,29 @@ export default function Search() {
       setNewSearch(false);
     }
   }, [newSearch]);
+
   return (
     <div className="search">
-      <SearchBar newSearch={newSearch} setNewSearch={setNewSearch} />
-      <div className="search-results-container">
-        {searchResults
-          ? searchResults?.items.map((book) => (
-              <a
-                className="search-result grow-tiny white shadow"
-                href={`/book/${book.id}`}
-              >
-                <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
-                <p>{book?.volumeInfo?.title}</p>
-              </a>
-            ))
-          : null}
-      </div>
+      {token ? (
+        <>
+          <SearchBar newSearch={newSearch} setNewSearch={setNewSearch} />
+          <div className="search-results-container">
+            {searchResults
+              ? searchResults?.items.map((book) => (
+                  <a
+                    className="search-result grow-tiny white shadow"
+                    href={`/book/${book.id}`}
+                  >
+                    <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
+                    <p>{book?.volumeInfo?.title}</p>
+                  </a>
+                ))
+              : null}
+          </div>
+        </>
+      ) : (
+        <Error />
+      )}
     </div>
   );
 }

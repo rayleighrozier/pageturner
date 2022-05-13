@@ -23,7 +23,7 @@ export default function Nav() {
       {signedIn ? (
         <div className="nav-links">
           <a href="/">Shelves</a>
-          <a href="#">Search</a>
+          <a href="/search">Search</a>
           <a onClick={signOut} href="/">
             Sign Out
           </a>
