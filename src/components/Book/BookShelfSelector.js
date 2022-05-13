@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   EDIT_SHELVES,
@@ -12,6 +12,7 @@ export default function BookShelfSelector() {
   const currentBook = useSelector((state) => state.currentBook);
   const books = useSelector((state) => state.user.books);
   const id = useSelector((state) => state.user.id);
+  const [shelfUpdate, setShelfUpdate] = useState(false);
   const closeShelves = () => {
     dispatch({ type: EDIT_SHELVES, payload: false });
   };
@@ -46,9 +47,16 @@ export default function BookShelfSelector() {
         });
       }
     }
-    userUpdateBooks(id, books);
-    closeShelves();
+    setShelfUpdate(true);
   };
+
+  useEffect(() => {
+    if (shelfUpdate) {
+      userUpdateBooks(id, books);
+      setShelfUpdate(false);
+      closeShelves();
+    }
+  }, [shelfUpdate]);
 
   return (
     <div className="book-shelf-selector white shadow">

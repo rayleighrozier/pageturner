@@ -17,6 +17,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/book/:id" element={<Book />} />
             <Route path="/search/:q" element={<Search />} />
+            <Route path="/search" element={<Search />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
