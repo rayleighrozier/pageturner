@@ -23,14 +23,12 @@ export default function BookShelfSelector() {
       favorites: e.target.form[1].checked,
       tbr: e.target.form[2].checked,
     };
-    console.log("input", input);
     return input;
   };
   const updateShelves = (e) => {
     let selection = captureSelection(e);
     for (const shelf in selection) {
       if (selection[shelf] === true) {
-        console.log("self is true", shelf);
         dispatch({
           type: ADD_USER_BOOK,
           payload: {
@@ -40,7 +38,6 @@ export default function BookShelfSelector() {
         });
       }
       if (selection[shelf] === false) {
-        console.log("self is flase", shelf);
         dispatch({
           type: REMOVE_USER_BOOK,
           payload: {
@@ -51,12 +48,10 @@ export default function BookShelfSelector() {
       }
     }
     setShelfUpdate(true);
-    console.log("current state of shelfUpdate", shelfUpdate);
   };
 
   useEffect(() => {
     if (shelfUpdate) {
-      console.log("shelf updateeeee", books);
       userUpdateBooks(id, books);
       setShelfUpdate(false);
       closeShelves();
