@@ -14,7 +14,7 @@ const defaultState = {
   email: "",
   id: "",
   books: { all: [], current: [], favorites: [], tbr: [] },
-  googleData: [],
+  googleData: null,
 };
 
 function user(state = defaultState, action) {
