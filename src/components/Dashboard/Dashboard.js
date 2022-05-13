@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_BOOKS, SET_GOOGLE_DATA, SET_PAGE } from "../../action-types";
+import {
+  SET_BOOKS,
+  SET_GOOGLE_DATA,
+  SET_PAGE,
+  RESET_CURRENT_BOOK,
+} from "../../action-types";
 import { userGetBooks } from "../../actions/supabase";
 import { getSingleBook } from "../../actions/googleBooks";
 import { checkToken } from "../../actions/token";
@@ -33,6 +38,7 @@ export default function Dashboard() {
   useEffect(() => {
     updateBooks(id);
     dispatch({ type: SET_PAGE, payload: "Dashboard" });
+    dispatch({ type: RESET_CURRENT_BOOK });
   }, []);
 
   return (

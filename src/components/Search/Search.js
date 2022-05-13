@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_SEARCH_RESULTS } from "../../action-types";
+import { SET_SEARCH_RESULTS, RESET_CURRENT_BOOK } from "../../action-types";
 import { getSearchResults } from "../../actions/googleBooks";
 import { checkToken } from "../../actions/token";
 import SearchBar from "../Dashboard/SearchBar";
@@ -20,6 +20,7 @@ export default function Search() {
   };
 
   useEffect(() => {
+    dispatch({ type: RESET_CURRENT_BOOK });
     if (q) {
       setNewSearch(true);
     }
