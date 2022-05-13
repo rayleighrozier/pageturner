@@ -6,6 +6,7 @@ import { getSearchResults } from "../../actions/googleBooks";
 import { checkToken } from "../../actions/token";
 import SearchBar from "../Dashboard/SearchBar";
 import Error from "../Error/Error";
+import Loading from "../Loading/Loading";
 import "./Search.css";
 
 export default function Search() {
@@ -14,9 +15,11 @@ export default function Search() {
   const { q } = useParams();
   const searchResults = useSelector((state) => state.searchResults);
   const [newSearch, setNewSearch] = useState(false);
+  const [loading, setLoading] = useState(false);
   const updateSearchResults = async () => {
     let results = await getSearchResults(q);
     dispatch({ type: SET_SEARCH_RESULTS, payload: results });
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -28,6 +31,7 @@ export default function Search() {
 
   useEffect(() => {
     if (newSearch) {
+      setLoading(true);
       updateSearchResults();
       setNewSearch(false);
     }
@@ -38,19 +42,24 @@ export default function Search() {
       {token ? (
         <>
           <SearchBar newSearch={newSearch} setNewSearch={setNewSearch} />
-          <div className="search-results-container">
-            {searchResults
-              ? searchResults?.items.map((book) => (
-                  <a
-                    className="search-result grow-tiny white shadow"
-                    href={`/book/${book.id}`}
-                  >
-                    <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
-                    <p>{book?.volumeInfo?.title}</p>
-                  </a>
-                ))
-              : null}
-          </div>
+
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="search-results-container">
+              {searchResults
+                ? searchResults?.items.map((book) => (
+                    <a
+                      className="search-result grow-tiny white shadow"
+                      href={`/book/${book.id}`}
+                    >
+                      <img src={book?.volumeInfo?.imageLinks?.thumbnail} />
+                      <p>{book?.volumeInfo?.title}</p>
+                    </a>
+                  ))
+                : null}
+            </div>
+          )}
         </>
       ) : (
         <Error />
