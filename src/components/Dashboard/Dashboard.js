@@ -30,7 +30,7 @@ export default function Dashboard() {
       dataArray = [...dataArray, data];
     }
     dispatch({ type: SET_GOOGLE_DATA, payload: dataArray });
-    setLoading(false);
+    setTimeout(() => setLoading(false), 1000);
   };
   const updateBooks = async (id) => {
     let updatedBooks = await userGetBooks(id);
@@ -38,7 +38,7 @@ export default function Dashboard() {
     if (updatedBooks.all.length !== googleData.length || googleData === null) {
       updateGoogleData();
     } else {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 1000);
     }
   };
 
