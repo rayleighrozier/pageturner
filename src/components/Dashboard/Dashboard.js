@@ -35,7 +35,11 @@ export default function Dashboard() {
   const updateBooks = async (id) => {
     let updatedBooks = await userGetBooks(id);
     dispatch({ type: SET_BOOKS, payload: updatedBooks });
-    updateGoogleData();
+    if (updatedBooks.all.length !== googleData.length || googleData === null) {
+      updateGoogleData();
+    } else {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
