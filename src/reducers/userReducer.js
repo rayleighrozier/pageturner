@@ -1,6 +1,5 @@
 import {
-  TEST_USER,
-  SET_SIGNED_IN,
+  RESET_USER,
   SIGN_IN_USER,
   SET_BOOKS,
   SET_GOOGLE_DATA,
@@ -15,22 +14,13 @@ const defaultState = {
   email: "",
   id: "",
   books: { all: [], current: [], favorites: [], tbr: [] },
-  googleData: [],
-  signedIn: false,
+  googleData: null,
 };
 
 function user(state = defaultState, action) {
   switch (action.type) {
-    case TEST_USER:
-      return state;
-    case SET_SIGNED_IN:
-      if (action.payload === false) {
-        return defaultState;
-      }
-      if (action.payload) {
-        return { ...state, signedIn: action.payload };
-      }
-
+    case RESET_USER:
+      return defaultState;
     case SIGN_IN_USER: {
       return { ...state, id: action.payload.id, email: action.payload.email };
     }

@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Book from "./components/Book/Book";
 import Search from "./components/Search/Search";
 import Error from "./components/Error/Error";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/book/:id" element={<Book />} />
             <Route path="/search/:q" element={<Search />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/loading" element={<Loading />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

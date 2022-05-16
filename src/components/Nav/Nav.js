@@ -1,18 +1,26 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SET_SIGNED_IN, SET_SEARCH_RESULTS } from "../../action-types";
+import {
+  RESET_SEARCH_RESULTS,
+  RESET_USER,
+  SET_PAGE,
+  RESET_CURRENT_BOOK,
+} from "../../action-types";
 import { userSignOut } from "../../actions/supabase";
+import { checkToken } from "../../actions/token";
 import "./Nav.css";
 
 export default function Nav() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signedIn = useSelector((state) => state.user.signedIn);
+  const token = checkToken();
   const signOut = () => {
     userSignOut();
-    dispatch({ type: SET_SIGNED_IN, payload: false });
-    dispatch({ type: SET_SEARCH_RESULTS, payload: null });
+    dispatch({ type: RESET_USER });
+    dispatch({ type: RESET_CURRENT_BOOK });
+    dispatch({ type: RESET_SEARCH_RESULTS });
+    dispatch({ type: SET_PAGE, payload: "SignIn" });
     navigate("/");
   };
   return (
@@ -20,10 +28,10 @@ export default function Nav() {
       <div className="nav-pageturner">
         <a href="/">pageturner</a>
       </div>
-      {signedIn ? (
+      {token ? (
         <div className="nav-links">
           <a href="/">Shelves</a>
-          <a href="#">Search</a>
+          <a href="/search">Search</a>
           <a onClick={signOut} href="/">
             Sign Out
           </a>

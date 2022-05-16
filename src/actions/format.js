@@ -7,7 +7,6 @@ const getPercentage = (partial, total) => {
 };
 
 const removeTags = (str) => {
-  console.log(str);
   if (str === null || str === "") return false;
   else
     try {

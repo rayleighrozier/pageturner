@@ -1,10 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  SET_SIGNED_IN,
-  SIGN_IN_USER,
-  SET_PAGE,
-} from "../../action-types/index";
+import { SIGN_IN_USER, SET_PAGE } from "../../action-types/index";
 import { userSignIn } from "../../actions/supabase";
 import SignInNav from "./SignInNav";
 
@@ -23,7 +19,6 @@ export default function SignIn() {
     let currentUser = await userSignIn(input.email, input.password);
     if (currentUser.message !== "Invalid login credentials") {
       dispatch({ type: SIGN_IN_USER, payload: currentUser });
-      dispatch({ type: SET_SIGNED_IN, payload: true });
       dispatch({ type: SET_PAGE, payload: "Dashboard" });
     } else {
       window.alert("Invalid sign in. Try again!");

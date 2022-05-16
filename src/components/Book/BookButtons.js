@@ -10,7 +10,7 @@ import { bookOnShelf } from "../../actions/book";
 import { userUpdateBooks } from "../../actions/supabase";
 import BookShelfSelector from "./BookShelfSelector";
 
-export default function BookButtons() {
+export default function BookButtons(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const books = useSelector((state) => state.user.books);
@@ -36,6 +36,7 @@ export default function BookButtons() {
         shelf: shelf,
       },
     });
+    props.setShelved(true);
   };
 
   useEffect(() => {
@@ -57,6 +58,7 @@ export default function BookButtons() {
         },
       });
       userUpdateBooks(id, books);
+      props.setShelved(false);
     }
   };
 
